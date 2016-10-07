@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HammerModel.Model.Structures;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,12 +10,13 @@ namespace BhopmapGenerator.Model.Structures
     public class Room : IWorldObject
     {
         public const int WALL_SIZE = 8;
-        public double X { get; set; }
-        public double Y { get; set; }
-        public double Z { get; set; }
-        public double Width { get; set; }
-        public double Breadth { get; set; }
-        public double Height { get; set; }
+        public const double BOTTOM_PERECENTAGE = 0.8;
+        public int X { get; set; }
+        public int Y { get; set; }
+        public int Z { get; set; }
+        public int Width { get; set; }
+        public int Breadth { get; set; }
+        public int Height { get; set; }
         public TextureInfo WallTextureInfo { get; set; }
         public TextureInfo FloorTextureInfo { get; set; }
         public TextureInfo CeilingTextureInfo { get; set; }
@@ -35,7 +37,7 @@ namespace BhopmapGenerator.Model.Structures
             roomList.AddRange(floor.ToWorldObject());
             Cuboid ceiling = new Cuboid
             {
-                X = X, 
+                X = X,
                 Y = Y,
                 Z = Z + Height - WALL_SIZE,
                 Width = Width,
@@ -44,7 +46,7 @@ namespace BhopmapGenerator.Model.Structures
                 TextureInfo = CeilingTextureInfo
             };
             roomList.AddRange(ceiling.ToWorldObject());
-            Cuboid backWall = new Cuboid
+            Wall backWall = new Wall
             {
                 X = X,
                 Y = Y,
@@ -52,10 +54,12 @@ namespace BhopmapGenerator.Model.Structures
                 Width = Width,
                 Breadth = WALL_SIZE,
                 Height = Height - WALL_SIZE * 2,
-                TextureInfo = WallTextureInfo
+                BottomPercentage = BOTTOM_PERECENTAGE,
+                BottomTexture = WallTextureInfo,
+                TopTexture = TextureInfo.GetDefault()
             };
             roomList.AddRange(backWall.ToWorldObject());
-            Cuboid frontWall = new Cuboid
+            Wall frontWall = new Wall
             {
                 X = X,
                 Y = Y + Breadth - WALL_SIZE,
@@ -63,10 +67,12 @@ namespace BhopmapGenerator.Model.Structures
                 Width = Width,
                 Breadth = WALL_SIZE,
                 Height = Height - WALL_SIZE * 2,
-                TextureInfo = WallTextureInfo
+                BottomPercentage = BOTTOM_PERECENTAGE,
+                BottomTexture = WallTextureInfo,
+                TopTexture = TextureInfo.GetDefault()
             };
             roomList.AddRange(frontWall.ToWorldObject());
-            Cuboid rightWall = new Cuboid
+            Wall rightWall = new Wall
             {
                 X = X,
                 Y = Y + WALL_SIZE,
@@ -74,10 +80,12 @@ namespace BhopmapGenerator.Model.Structures
                 Width = WALL_SIZE,
                 Breadth = Breadth - WALL_SIZE * 2,
                 Height = Height - WALL_SIZE * 2,
-                TextureInfo = WallTextureInfo
+                BottomPercentage = BOTTOM_PERECENTAGE,
+                BottomTexture = WallTextureInfo,
+                TopTexture = TextureInfo.GetDefault()
             };
             roomList.AddRange(rightWall.ToWorldObject());
-            Cuboid leftWall = new Cuboid
+            Wall leftWall = new Wall
             {
                 X = X + Width - WALL_SIZE,
                 Y = Y + WALL_SIZE,
@@ -85,7 +93,9 @@ namespace BhopmapGenerator.Model.Structures
                 Width = WALL_SIZE,
                 Breadth = Breadth - WALL_SIZE * 2,
                 Height = Height - WALL_SIZE * 2,
-                TextureInfo = WallTextureInfo
+                BottomPercentage = BOTTOM_PERECENTAGE,
+                BottomTexture = WallTextureInfo,
+                TopTexture = TextureInfo.GetDefault()
             };
             roomList.AddRange(leftWall.ToWorldObject());
 

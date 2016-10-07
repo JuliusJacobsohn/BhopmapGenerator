@@ -8,24 +8,13 @@ namespace BhopmapGenerator.Model.Structures
 {
     public class Cuboid : IWorldObject
     {
-        public double X { get; set; }
-        public double Y { get; set; }
-        public double Z { get; set; }
-        public double Width { get; set; }
-        public double Breadth { get; set; }
-        public double Height { get; set; }
-        private TextureInfo _textureInfo { get; set; }
-        public TextureInfo TextureInfo
-        {
-            get
-            {
-                return _textureInfo == null ? TextureInfo.GetDefault() : _textureInfo;
-            }
-            set
-            {
-                _textureInfo = value;
-            }
-        }
+        public int X { get; set; }
+        public int Y { get; set; }
+        public int Z { get; set; }
+        public int Width { get; set; }
+        public int Breadth { get; set; }
+        public int Height { get; set; }
+        public TextureInfo TextureInfo { get; set; }
 
         public List<Solid> ToWorldObject()
         {

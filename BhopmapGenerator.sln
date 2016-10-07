@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BhopmapGenerator", "..\BhopmapGenerator\BhopmapGenerator.csproj", "{C3F11C1A-BA60-4D62-9192-2E9855C28B7C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BhopmapGenerator", "BhopmapGenerator\BhopmapGenerator.csproj", "{C3F11C1A-BA60-4D62-9192-2E9855C28B7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HammerModel", "..\HammerModel\HammerModel.csproj", "{2B9F1C28-30DC-4256-B146-9173A9571D9E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HammerModel", "HammerModel\HammerModel.csproj", "{2B9F1C28-30DC-4256-B146-9173A9571D9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

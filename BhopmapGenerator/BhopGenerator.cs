@@ -66,23 +66,23 @@ namespace BhopmapGenerator
                 Height = 100,
                 Target = "TelepORTererr"
             };
-            //m.AddWorldObject(r);
-            //m.AddWorldObject(r2);
-            //m.AddEntity(tp);
+            m.AddWorldObject(r);
+            m.AddWorldObject(r2);
+            m.AddEntity(tp);
 
-            for(int i = 0; i < 50; i++)
-            {
-                Cuboid c = new Cuboid
-                {
-                    X = i * 32,
-                    Y = i * 32,
-                    Z = i * 32,
-                    Width = i * 32,
-                    Breadth = i * 32,
-                    Height = i * 32
-                };
-                m.AddWorldObject(c); //TODO: Fehler mit der ID herausfinden
-            }
+            //for(int i = 0; i < 50; i++)
+            //{
+            //    Cuboid c = new Cuboid
+            //    {
+            //        X = i * 32,
+            //        Y = i * 32,
+            //        Z = i * 32,
+            //        Width = i * 32,
+            //        Breadth = i * 32,
+            //        Height = i * 32
+            //    };
+            //    m.AddWorldObject(c); //TODO: Fehler mit der ID herausfinden
+            //}
 
             Console.WriteLine(m.ToString());
             File.WriteAllText(@"F:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\sdk_content\maps\generated.vmf", m.ToString());

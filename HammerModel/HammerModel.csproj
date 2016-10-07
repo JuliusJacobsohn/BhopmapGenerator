@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{2B9F1C28-30DC-4256-B146-9173A9571D9E}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HammerModel</RootNamespace>
     <AssemblyName>HammerModel</AssemblyName>
@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
@@ -51,9 +54,13 @@
     <Compile Include="Model\Structures\IWorldObject.cs" />
     <Compile Include="Model\Structures\Room.cs" />
     <Compile Include="Model\Structures\Teleport.cs" />
+    <Compile Include="Model\Structures\Wall.cs" />
     <Compile Include="Model\TextureInfo.cs" />
     <Compile Include="Model\TriggerTeleport.cs" />
     <Compile Include="Model\World.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

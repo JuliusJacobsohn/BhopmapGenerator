@@ -20,8 +20,13 @@ namespace BhopmapGenerator.Model
         public Side Side6 { get; set; }
         public Editor Editor { get; set; }
 
-        public Solid(double x, double y, double z, double width, double breadth, double height, TextureInfo textureInfo)
+        public Solid(double x, double y, double z, double width, double breadth, double height, TextureInfo textureInfo = null)
         {
+            if(textureInfo == null)
+            {
+                textureInfo = TextureInfo.GetDefault();
+            }
+
             X = x;
             Y = y;
             Z = z;
