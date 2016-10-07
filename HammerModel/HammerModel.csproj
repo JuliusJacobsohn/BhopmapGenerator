@@ -45,6 +45,7 @@
     <Compile Include="Model\Entity.cs" />
     <Compile Include="Model\HONHelper.cs" />
     <Compile Include="Model\IDefaultable.cs" />
+    <Compile Include="Model\InfoPlayerSpawn.cs" />
     <Compile Include="Model\IntTriple.cs" />
     <Compile Include="Model\Map.cs" />
     <Compile Include="Model\Side.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="Model\Structures\IEntity.cs" />
     <Compile Include="Model\Structures\IWorldObject.cs" />
     <Compile Include="Model\Structures\Room.cs" />
+    <Compile Include="Model\Structures\Spawn.cs" />
     <Compile Include="Model\Structures\Teleport.cs" />
     <Compile Include="Model\Structures\Wall.cs" />
     <Compile Include="Model\TextureInfo.cs" />

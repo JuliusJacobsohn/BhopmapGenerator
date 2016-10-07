@@ -1,5 +1,5 @@
-﻿using BhopmapGenerator.Model;
-using BhopmapGenerator.Model.Structures;
+﻿using HammerModel.Model;
+using HammerModel.Model.Structures;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -66,6 +66,25 @@ namespace BhopmapGenerator
                 Height = 100,
                 Target = "TelepORTererr"
             };
+
+            Spawn t = new Spawn
+            {
+                Id = 0,
+                Terrorist = true,
+                X = 110,
+                Y = 110,
+                Z = 110
+            };
+            Spawn ct = new Spawn
+            {
+                Id = 0,
+                Terrorist = false ,
+                X = 110,
+                Y = 180,
+                Z = 110
+            };
+            m.AddEntity(t);
+            m.AddEntity(ct);
             m.AddWorldObject(r);
             m.AddWorldObject(r2);
             m.AddEntity(tp);

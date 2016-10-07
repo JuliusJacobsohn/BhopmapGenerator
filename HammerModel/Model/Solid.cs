@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BhopmapGenerator.Model
+namespace HammerModel.Model
 {
     public class Solid
     {
-        public double X { get; set; }
-        public double Y { get; set; }
-        public double Z { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
+        public int Z { get; set; }
         public int Id { get; set; }
         public Side Side1 { get; set; }
         public Side Side2 { get; set; }
@@ -20,7 +20,7 @@ namespace BhopmapGenerator.Model
         public Side Side6 { get; set; }
         public Editor Editor { get; set; }
 
-        public Solid(double x, double y, double z, double width, double breadth, double height, TextureInfo textureInfo = null)
+        public Solid(int x, int y, int z, int width, int breadth, int height, TextureInfo textureInfo = null)
         {
             if(textureInfo == null)
             {

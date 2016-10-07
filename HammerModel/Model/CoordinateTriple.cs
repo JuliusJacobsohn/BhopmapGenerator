@@ -1,4 +1,4 @@
-﻿namespace BhopmapGenerator.Model
+﻿namespace HammerModel.Model
 {
     public class CoordinateTriple
     {

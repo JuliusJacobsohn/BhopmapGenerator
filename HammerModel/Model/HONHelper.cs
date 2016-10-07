@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BhopmapGenerator.Model
+namespace HammerModel.Model
 {
     public class HONHelper
     {

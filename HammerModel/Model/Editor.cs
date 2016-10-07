@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BhopmapGenerator.Model
+namespace HammerModel.Model
 {
     public class Editor// : IDefaultable<Editor>
     {

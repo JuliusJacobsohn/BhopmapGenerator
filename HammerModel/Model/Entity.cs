@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BhopmapGenerator.Model
+namespace HammerModel.Model
 {
     public abstract class Entity
     {

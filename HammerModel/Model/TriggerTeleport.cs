@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BhopmapGenerator.Model
+namespace HammerModel.Model
 {
     public class TriggerTeleport : Entity
     {
@@ -15,10 +15,26 @@ namespace BhopmapGenerator.Model
                 return "trigger_teleport";
             }
         }
-
+        public int X { get; set; }
+        public int Y { get; set; }
+        public int Z { get; set; }
+        public int Width { get; set; }
+        public int Breadth { get; set; }
+        public int Height { get; set; }
+        public IntTriple Origin
+        {
+            get
+            {
+                return new IntTriple
+                {
+                    X = X + (Width / 2),
+                    Y = Y + (Breadth / 2),
+                    Z = Z + (Height / 2)
+                };
+            }
+        }
         public Solid Solid { get; set; }
         public int CheckDestIfClearForPlayer = 0;
-        public IntTriple Origin = new IntTriple { X = 0, Y = 0, Z = 0 };
         public int SpawnFlags = 4097;
         public int StartDisabled = 0;
         public string Target { get; set; }

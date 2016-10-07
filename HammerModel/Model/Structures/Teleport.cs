@@ -4,16 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BhopmapGenerator.Model.Structures
+namespace HammerModel.Model.Structures
 {
     public class Teleport : IEntity
     {
-        public double X { get; set; }
-        public double Y { get; set; }
-        public double Z { get; set; }
-        public double Width { get; set; }
-        public double Breadth { get; set; }
-        public double Height { get; set; }
+
+        public int Id { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
+        public int Z { get; set; }
+        public int Width { get; set; }
+        public int Breadth { get; set; }
+        public int Height { get; set; }
         public TextureInfo TextureInfo
         {
             get
@@ -35,7 +37,7 @@ namespace BhopmapGenerator.Model.Structures
             {
                 Solid = new Solid(X, Y, Z, Width, Breadth, Height, TextureInfo),
                 Target = Target,
-                Id = 0,
+                Id = Id,
                 Editor = Editor.GetDefault()
             };
             entityList.Add(tp);
