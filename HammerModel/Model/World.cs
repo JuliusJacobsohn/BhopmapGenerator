@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using HammerModel.Model.Misc;
+using System.Collections.Generic;
 
 namespace HammerModel.Model
 {

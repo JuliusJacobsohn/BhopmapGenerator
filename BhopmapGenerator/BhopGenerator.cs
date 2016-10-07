@@ -1,4 +1,5 @@
 ﻿using HammerModel.Model;
+using HammerModel.Model.Misc;
 using HammerModel.Model.Structures;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BhopmapGenerator
-{
+{ 
     public class BhopGenerator
     {
         private TextureInfo StandardWall;
@@ -78,11 +79,28 @@ namespace BhopmapGenerator
             Spawn ct = new Spawn
             {
                 Id = 0,
-                Terrorist = false ,
+                Terrorist = false,
                 X = 110,
                 Y = 180,
                 Z = 110
             };
+
+            for(int i = 0; i < 10; i++)
+            {
+                WorldLight l = new WorldLight
+                {
+                    X = 110 + i * 100,
+                    Y = 110,
+                    Z = 230,
+                    R = 255,
+                    G = 255,
+                    B = 255,
+                    A = 200,
+                    Id = 1
+                };
+                m.AddEntity(l);
+            }
+
             m.AddEntity(t);
             m.AddEntity(ct);
             m.AddWorldObject(r);

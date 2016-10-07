@@ -40,14 +40,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Axis.cs" />
-    <Compile Include="Model\CoordinateTriple.cs" />
+    <Compile Include="Model\Misc\CoordinateTriple.cs" />
     <Compile Include="Model\Editor.cs" />
     <Compile Include="Model\Entity.cs" />
-    <Compile Include="Model\HONHelper.cs" />
+    <Compile Include="Model\Misc\HONHelper.cs" />
     <Compile Include="Model\IDefaultable.cs" />
     <Compile Include="Model\InfoPlayerSpawn.cs" />
-    <Compile Include="Model\IntTriple.cs" />
+    <Compile Include="Model\Misc\IntTriple.cs" />
+    <Compile Include="Model\Light.cs" />
     <Compile Include="Model\Map.cs" />
+    <Compile Include="Model\Misc\LightValue.cs" />
     <Compile Include="Model\Side.cs" />
     <Compile Include="Model\Solid.cs" />
     <Compile Include="Model\Structures\Cuboid.cs" />
@@ -57,7 +59,8 @@
     <Compile Include="Model\Structures\Spawn.cs" />
     <Compile Include="Model\Structures\Teleport.cs" />
     <Compile Include="Model\Structures\Wall.cs" />
-    <Compile Include="Model\TextureInfo.cs" />
+    <Compile Include="Model\Misc\TextureInfo.cs" />
+    <Compile Include="Model\Structures\WorldLight.cs" />
     <Compile Include="Model\TriggerTeleport.cs" />
     <Compile Include="Model\World.cs" />
   </ItemGroup>

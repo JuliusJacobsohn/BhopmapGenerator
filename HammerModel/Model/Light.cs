@@ -1,5 +1,4 @@
-﻿using HammerModel.Model;
-using HammerModel.Model.Misc;
+﻿using HammerModel.Model.Misc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,22 +7,13 @@ using System.Threading.Tasks;
 
 namespace HammerModel.Model
 {
-    public class InfoPlayerSpawn : Entity
+    public class Light : Entity
     {
-        public bool Terrorist { get; set; }
-
         public override string ClassName
         {
             get
             {
-                if (Terrorist)
-                {
-                    return "info_player_terrorist";
-                }
-                else
-                {
-                    return "info_player_counterterrorist";
-                }
+                return "light";
             }
         }
         public int X { get; set; }
@@ -41,17 +31,22 @@ namespace HammerModel.Model
                 };
             }
         }
+        public LightValue _Light { get; set; }
+        public LightValue _LightHDR { get; set; }
+        public int _LightScaleHDR = 1; //TODO: Is this really an int?
+        public int _QuadraticAttn = 1; //TODO: Is this really an int?
 
-        public IntTriple Angles = new IntTriple { X = 0, Y = 0, Z = 0 };
-        public int Enabled = 1;
         public override string ToString()
         {
             Editor = Editor.GetDefault();
+            _LightHDR = LightValue.GetDefault();
             return HONHelper.GetHonObjectBody("entity",
                 HONHelper.GetKeyValuePair("id", Id),
                 HONHelper.GetKeyValuePair("classname", ClassName),
-                HONHelper.GetKeyValuePair("angles", Angles),
-                HONHelper.GetKeyValuePair("enabled", Enabled),
+                HONHelper.GetKeyValuePair("_light", _Light),
+                HONHelper.GetKeyValuePair("_lightHDR", _LightHDR),
+                HONHelper.GetKeyValuePair("_lightscaleHDR", _LightScaleHDR),
+                HONHelper.GetKeyValuePair("_quadratic_attn", _QuadraticAttn),
                 HONHelper.GetKeyValuePair("origin", Origin),
                 Editor.ToString());
         }

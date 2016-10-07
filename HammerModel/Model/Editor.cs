@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HammerModel.Model.Misc;
+using System;
 
 namespace HammerModel.Model
 {
