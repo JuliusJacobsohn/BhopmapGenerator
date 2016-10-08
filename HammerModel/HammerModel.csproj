@@ -52,7 +52,7 @@
     <Compile Include="Model\Misc\LightValue.cs" />
     <Compile Include="Model\Side.cs" />
     <Compile Include="Model\Solid.cs" />
-    <Compile Include="Model\Structures\Cuboid.cs" />
+    <Compile Include="Model\Structures\Block.cs" />
     <Compile Include="Model\Structures\IEntity.cs" />
     <Compile Include="Model\Structures\IWorldObject.cs" />
     <Compile Include="Model\Structures\Room.cs" />

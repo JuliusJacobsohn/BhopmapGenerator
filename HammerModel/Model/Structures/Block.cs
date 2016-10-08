@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HammerModel.Model.Structures
 {
-    public class Cuboid : IWorldObject
+    public class Block : IWorldObject
     {
         public int X { get; set; }
         public int Y { get; set; }

@@ -25,7 +25,7 @@ namespace HammerModel.Model.Structures
         public List<Solid> ToWorldObject()
         {
             List<Solid> roomList = new List<Solid>();
-            Cuboid floor = new Cuboid
+            Block floor = new Block
             {
                 X = X,
                 Y = Y,
@@ -36,7 +36,7 @@ namespace HammerModel.Model.Structures
                 TextureInfo = FloorTextureInfo
             };
             roomList.AddRange(floor.ToWorldObject());
-            Cuboid ceiling = new Cuboid
+            Block ceiling = new Block
             {
                 X = X,
                 Y = Y,

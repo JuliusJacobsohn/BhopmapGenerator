@@ -28,7 +28,7 @@ namespace HammerModel.Model.Structures
             int bottomHeight = (int)(Height * BottomPercentage);
             int topHeight = Height - bottomHeight;
 
-            Cuboid bottomCube = new Cuboid
+            Block bottomCube = new Block
             {
                 X = X,
                 Y = Y,
@@ -38,7 +38,7 @@ namespace HammerModel.Model.Structures
                 Height = bottomHeight,
                 TextureInfo = BottomTexture
             };
-            Cuboid topCube = new Cuboid
+            Block topCube = new Block
             {
                 X = X,
                 Y = Y,
