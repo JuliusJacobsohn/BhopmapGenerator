@@ -18,8 +18,8 @@ Room room = new Room
 };
 m.AddWorldObject(room);
   
-//The string representation of the map can be used as a vmf file and can be compiles by hammer editor
-Console.WriteLine(m.ToString());
+//The string representation of the map is equivalent to the vmf file hammer editor would produce (and can be compiled by it)
+Console.WriteLine(m.ToString()); //Save this to a .vmf file
 ```
 Inside the Model folder are the "low level" models, if you want to write code please use the models in the "Structures" folder, such as Block (simple Cube), Room (Simple room with 6 Blocks), ...
 
