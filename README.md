@@ -2,6 +2,7 @@
 A simple abstraction over Hammer's VMF Model that let's you "program" maps.
 
 Sample code:
+```
   //Creating a simple Map
   Map m = new Map();
 
@@ -19,7 +20,7 @@ Sample code:
   
   //The string representation of the map can be used as a vmf file and can be compiles by hammer editor
   Console.WriteLine(m.ToString());
-
+```
 Inside the Model folder are the "low level" models, if you want to write code please use the models in the "Structures" folder, such as Block (simple Cube), Room (Simple room with 6 Blocks), ...
 
 Planned features:
