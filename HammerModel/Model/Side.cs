@@ -1,4 +1,5 @@
-﻿using HammerModel.Model.Misc;
+﻿using HammerModel.Helpers;
+using HammerModel.Model.Misc;
 using System;
 using System.Collections.Generic;
 using System.Linq;

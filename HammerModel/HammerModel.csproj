@@ -44,13 +44,13 @@
     <Compile Include="Model\Misc\CoordinateTriple.cs" />
     <Compile Include="Model\Editor.cs" />
     <Compile Include="Model\Entity.cs" />
-    <Compile Include="Model\Misc\HONHelper.cs" />
+    <Compile Include="Helpers\HONHelper.cs" />
     <Compile Include="Model\InfoPlayerSpawn.cs" />
     <Compile Include="Model\Misc\IntTriple.cs" />
     <Compile Include="Model\Light.cs" />
     <Compile Include="Model\Map.cs" />
     <Compile Include="Model\Misc\LightValue.cs" />
-    <Compile Include="Model\Misc\StandardValues.cs" />
+    <Compile Include="Helpers\StandardValues.cs" />
     <Compile Include="Model\Misc\WallTextureInfo.cs" />
     <Compile Include="Model\Side.cs" />
     <Compile Include="Model\Solid.cs" />

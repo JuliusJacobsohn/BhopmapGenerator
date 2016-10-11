@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HammerModel.Model.Misc
+namespace HammerModel.Helpers
 {
     public class StandardValues
     {
