@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace HammerModel.Model.Structures
 {
-    public class WorldLight : IEntity
+    public class WorldLight : HammerObject, IWorldEntity
     {
-        public int Id { get; set; }
         public int R { get; set; }
         public int G { get; set; }
         public int B { get; set; }
@@ -17,7 +16,7 @@ namespace HammerModel.Model.Structures
         public int Y { get; set; }
         public int Z { get; set; }
 
-        public List<Entity> ToEntity()
+        public List<Entity> ToWorldEntity()
         {
             List<Entity> entityList = new List<Entity>();
 
@@ -33,7 +32,6 @@ namespace HammerModel.Model.Structures
                     B = B,
                     A = A
                 },
-                Id = Id,
                 Editor = Editor.GetDefault()
             };
             entityList.Add(l);

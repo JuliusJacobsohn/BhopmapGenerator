@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace HammerModel.Model.Structures
 {
-    public class Teleport : IEntity
+    public class Teleport : IWorldEntity
     {
-
-        public int Id { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
         public int Z { get; set; }
@@ -30,7 +28,7 @@ namespace HammerModel.Model.Structures
         }
         public string Target { get; set; }
 
-        public List<Entity> ToEntity()
+        public List<Entity> ToWorldEntity()
         {
             List<Entity> entityList = new List<Entity>();
 
@@ -38,7 +36,6 @@ namespace HammerModel.Model.Structures
             {
                 Solid = new Solid(X, Y, Z, Width, Breadth, Height, TextureInfo),
                 Target = Target,
-                Id = Id,
                 Editor = Editor.GetDefault()
             };
             entityList.Add(tp);

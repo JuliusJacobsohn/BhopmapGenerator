@@ -53,7 +53,6 @@ namespace Samples
             {
                 Spawn t = new Spawn
                 {
-                    Id = 0,
                     Terrorist = true,
                     X = 50,
                     Y = 50 + i * 100,
@@ -61,7 +60,6 @@ namespace Samples
                 };
                 Spawn ct = new Spawn
                 {
-                    Id = 0,
                     Terrorist = false,
                     X = 950,
                     Y = 50 + i * 100,

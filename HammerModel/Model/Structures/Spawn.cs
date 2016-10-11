@@ -8,15 +8,14 @@ using HammerModel.Model;
 
 namespace HammerModel.Model.Structures
 {
-    public class Spawn : IEntity
+    public class Spawn : IWorldEntity
     {
-        public int Id { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
         public int Z { get; set; }
         public bool Terrorist { get; set; }
 
-        public List<Entity> ToEntity()
+        public List<Entity> ToWorldEntity()
         {
             List<Entity> entityList = new List<Entity>();
 
@@ -25,7 +24,6 @@ namespace HammerModel.Model.Structures
                 X = X,
                 Y = Y,
                 Z = Z,
-                Id = Id,
                 Terrorist = Terrorist,
                 Editor = Editor.GetDefault()
             };

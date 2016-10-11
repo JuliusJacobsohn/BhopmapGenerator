@@ -33,7 +33,6 @@ namespace HammerModel.Model
             Editor = Editor.GetDefault();
             Side1 = new Side
             {
-                Id = 1,
                 Plane = new CoordinateTriple
                 {
                     X1 = x,
@@ -69,7 +68,6 @@ namespace HammerModel.Model
             };
             Side2 = new Side
             {
-                Id = 2,
                 Plane = new CoordinateTriple
                 {
                     X1 = x,// + size,
@@ -105,7 +103,6 @@ namespace HammerModel.Model
             };
             Side3 = new Side
             {
-                Id = 3,
                 Plane = new CoordinateTriple
                 {
                     X1 = x,// + size,
@@ -141,7 +138,6 @@ namespace HammerModel.Model
             };
             Side4 = new Side
             {
-                Id = 4,
                 Plane = new CoordinateTriple
                 {
                     X1 = x + width,
@@ -177,7 +173,6 @@ namespace HammerModel.Model
             };
             Side5 = new Side
             {
-                Id = 5,
                 Plane = new CoordinateTriple
                 {
                     X1 = x,// + size,
@@ -213,7 +208,6 @@ namespace HammerModel.Model
             };
             Side6 = new Side
             {
-                Id = 6,
                 Plane = new CoordinateTriple
                 {
                     X1 = x + width,

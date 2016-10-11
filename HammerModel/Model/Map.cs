@@ -44,9 +44,9 @@ namespace HammerModel.Model
             //World.Groups.AddRange(o.) TODO
         }
 
-        public void AddEntity(IEntity e)
+        public void AddEntity(IWorldEntity e)
         {
-            Entities.AddRange(e.ToEntity());
+            Entities.AddRange(e.ToWorldEntity());
         }
     }
 }

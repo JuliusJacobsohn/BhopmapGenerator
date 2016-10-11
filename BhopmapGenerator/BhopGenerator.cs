@@ -70,7 +70,6 @@ namespace BhopmapGenerator
 
             Spawn t = new Spawn
             {
-                Id = 0,
                 Terrorist = true,
                 X = 110,
                 Y = 110,
@@ -78,7 +77,6 @@ namespace BhopmapGenerator
             };
             Spawn ct = new Spawn
             {
-                Id = 0,
                 Terrorist = false,
                 X = 110,
                 Y = 180,
@@ -96,7 +94,6 @@ namespace BhopmapGenerator
                     G = 255,
                     B = 255,
                     A = 200,
-                    Id = 1
                 };
                 m.AddEntity(l);
             }
