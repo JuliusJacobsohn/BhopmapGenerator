@@ -9,6 +9,14 @@ namespace HammerModel.Model.Misc
 {
     public class HONHelper
     {
+        public static int IdCounter = 0;
+        public static int GetUniqueId()
+        {
+            int returnId = IdCounter;
+            IdCounter++;
+
+            return returnId;
+        }
         public static string GetKeyValuePair(string key, object value)
         {
             if (value.GetType() == typeof(double))
