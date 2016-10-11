@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace HammerModel.Model
 {
-    public class Side
+    public class Side : HammerObject
     {
-        public int Id { get; set; }
         public CoordinateTriple Plane { get; set; }
         public string Material { get; set; }
         public Axis UAxis { get; set; }

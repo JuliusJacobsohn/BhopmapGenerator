@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace HammerModel.Model
 {
-    public class Solid
+    public class Solid : HammerObject
     {
         public int X { get; set; }
         public int Y { get; set; }
         public int Z { get; set; }
-        public int Id { get; set; }
         public Side Side1 { get; set; }
         public Side Side2 { get; set; }
         public Side Side3 { get; set; }
@@ -31,7 +30,6 @@ namespace HammerModel.Model
             X = x;
             Y = y;
             Z = z;
-            Id = 1;
             Editor = Editor.GetDefault();
             Side1 = new Side
             {

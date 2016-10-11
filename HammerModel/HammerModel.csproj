@@ -39,12 +39,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Axis.cs" />
+    <Compile Include="Model\Misc\Axis.cs" />
+    <Compile Include="Model\HammerObject.cs" />
     <Compile Include="Model\Misc\CoordinateTriple.cs" />
     <Compile Include="Model\Editor.cs" />
     <Compile Include="Model\Entity.cs" />
     <Compile Include="Model\Misc\HONHelper.cs" />
-    <Compile Include="Model\IDefaultable.cs" />
     <Compile Include="Model\InfoPlayerSpawn.cs" />
     <Compile Include="Model\Misc\IntTriple.cs" />
     <Compile Include="Model\Light.cs" />
@@ -52,6 +52,8 @@
     <Compile Include="Model\Misc\LightValue.cs" />
     <Compile Include="Model\Side.cs" />
     <Compile Include="Model\Solid.cs" />
+    <Compile Include="Model\Structures\BhopChallenge.cs" />
+    <Compile Include="Model\Structures\BhopRoom.cs" />
     <Compile Include="Model\Structures\Block.cs" />
     <Compile Include="Model\Structures\IEntity.cs" />
     <Compile Include="Model\Structures\IWorldObject.cs" />

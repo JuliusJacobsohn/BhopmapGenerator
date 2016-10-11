@@ -13,7 +13,6 @@ namespace HammerModel.Model
         {
             World = new World
             {
-                Id = 1,
                 MapVersion = 1,
                 ClassName = "worldspawn",
                 DetailMaterial = "detail/detailsprites",

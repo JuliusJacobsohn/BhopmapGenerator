@@ -3,9 +3,8 @@ using System.Collections.Generic;
 
 namespace HammerModel.Model
 {
-    public class World
+    public class World : HammerObject
     {
-        public int Id { get; set; }
         public int MapVersion { get; set; }
         public string ClassName { get; set; }
         public string DetailMaterial { get; set; }
