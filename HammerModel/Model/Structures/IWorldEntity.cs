@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace HammerModel.Model.Structures
 {
-    public interface IEntity
+    public interface IWorldEntity
     {
-        int Id { get; set; }
-        List<Entity> ToEntity();
+        List<Entity> ToWorldEntity();
     }
 }
