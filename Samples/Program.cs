@@ -15,20 +15,25 @@ namespace Samples
         static TextureInfo Orange = new TextureInfo
         {
             TopTexture = "dev/dev_measuregeneric01",
-            SideTexture = "dev/dev_measuregeneric01"
+            DefaultTexture = "dev/dev_measuregeneric01"
         };
         static TextureInfo LightGray = new TextureInfo
         {
             TopTexture = "dev/graygrid",
-            SideTexture = "dev/graygrid"
+            DefaultTexture = "dev/graygrid"
         };
         static TextureInfo DarkGray = new TextureInfo
         {
             TopTexture = "dev/dev_measuregeneric01b",
-            SideTexture = "dev/dev_measuregeneric01b"
+            DefaultTexture = "dev/dev_measuregeneric01b"
         };
+        static WallTextureInfo WallTexture = new WallTextureInfo
+            {
+                Bottom = Orange,
+                Top = DarkGray
+    };
 
-        static void Main(string[] args)
+    static void Main(string[] args)
         {
             //Creating a simple Map
             Map m = new Map();
@@ -44,7 +49,7 @@ namespace Samples
                 Height = 384,
                 CeilingTextureInfo = LightGray,
                 FloorTextureInfo = DarkGray,
-                WallTextureInfo = Orange
+                WallTextureInfo = WallTexture
             };
             m.AddWorldObject(room);
 
@@ -98,8 +103,7 @@ namespace Samples
                 Breadth = 450,
                 Height = 80,
                 BottomPercentage = 0.7,
-                BottomTexture = Orange,
-                TopTexture = DarkGray
+                WallTexture = WallTexture
             };
             Wall ctBlock = new Wall
             {
@@ -110,8 +114,7 @@ namespace Samples
                 Breadth = 450,
                 Height = 80,
                 BottomPercentage = 0.7,
-                BottomTexture = Orange,
-                TopTexture = DarkGray
+                WallTexture = WallTexture
             };
             m.AddWorldObject(tBlock);
             m.AddWorldObject(ctBlock);

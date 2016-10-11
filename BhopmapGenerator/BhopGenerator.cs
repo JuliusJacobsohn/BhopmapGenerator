@@ -9,28 +9,31 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BhopmapGenerator
-{ 
+{
     public class BhopGenerator
     {
-        private TextureInfo StandardWall;
-        private TextureInfo StandardFloor;
-        private TextureInfo StandardCeiling;
+        private TextureInfo Orange = new TextureInfo
+        {
+            TopTexture = "dev/dev_measuregeneric01",
+            DefaultTexture = "dev/dev_measuregeneric01"
+        };
+        private TextureInfo LightGray = new TextureInfo
+        {
+            TopTexture = "dev/graygrid",
+            DefaultTexture = "dev/graygrid"
+        };
+        private TextureInfo DarkGray = new TextureInfo
+        {
+            TopTexture = "dev/dev_measuregeneric01b",
+            DefaultTexture = "dev/dev_measuregeneric01b"
+        };
+        private WallTextureInfo WallTexture;
         public BhopGenerator()
         {
-            StandardCeiling = new TextureInfo
+            WallTexture = new WallTextureInfo
             {
-                TopTexture = "dev/graygrid",
-                SideTexture = "dev/graygrid"
-            };
-            StandardFloor = new TextureInfo
-            {
-                TopTexture = "dev/dev_measuregeneric01",
-                SideTexture = "dev/dev_measuregeneric01"
-            };
-            StandardWall = new TextureInfo
-            {
-                TopTexture = "dev/dev_measuregeneric01b",
-                SideTexture = "dev/dev_measuregeneric01b"
+                Bottom = Orange,
+                Top = DarkGray
             };
             Map m = new Map();
             Room r = new Room
@@ -41,9 +44,9 @@ namespace BhopmapGenerator
                 Width = 1024,
                 Breadth = 512,
                 Height = 256,
-                CeilingTextureInfo = StandardCeiling,
-                FloorTextureInfo = StandardFloor,
-                WallTextureInfo = StandardWall
+                CeilingTextureInfo = LightGray,
+                FloorTextureInfo = DarkGray,
+                WallTextureInfo = WallTexture
             };
             Room r2 = new Room
             {
@@ -53,9 +56,9 @@ namespace BhopmapGenerator
                 Width = 4096,
                 Breadth = 1024,
                 Height = 128,
-                CeilingTextureInfo = StandardCeiling,
-                FloorTextureInfo = StandardFloor,
-                WallTextureInfo = StandardWall
+                CeilingTextureInfo = LightGray,
+                FloorTextureInfo = DarkGray,
+                WallTextureInfo = WallTexture
             };
             Teleport tp = new Teleport
             {
@@ -83,7 +86,7 @@ namespace BhopmapGenerator
                 Z = 110
             };
 
-            for(int i = 0; i < 10; i++)
+            for (int i = 0; i < 10; i++)
             {
                 WorldLight l = new WorldLight
                 {

@@ -22,7 +22,7 @@ namespace HammerModel.Model.Structures
                 return new TextureInfo
                 {
                     TopTexture = "tools/toolstrigger",
-                    SideTexture = "tools/toolstrigger"
+                    DefaultTexture = "tools/toolstrigger"
                 };
             }
         }

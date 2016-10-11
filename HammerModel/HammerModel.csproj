@@ -51,6 +51,7 @@
     <Compile Include="Model\Map.cs" />
     <Compile Include="Model\Misc\LightValue.cs" />
     <Compile Include="Model\Misc\StandardValues.cs" />
+    <Compile Include="Model\Misc\WallTextureInfo.cs" />
     <Compile Include="Model\Side.cs" />
     <Compile Include="Model\Solid.cs" />
     <Compile Include="Model\Structures\BhopChallenge.cs" />

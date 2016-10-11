@@ -18,8 +18,7 @@ namespace HammerModel.Model.Structures
         public int Breadth { get; set; }
         public int Height { get; set; }
         public double BottomPercentage { get; set; }
-        public TextureInfo TopTexture { get; set; }
-        public TextureInfo BottomTexture { get; set; }
+        public WallTextureInfo WallTexture { get; set; }
 
         public List<Solid> ToWorldObject()
         {
@@ -36,7 +35,7 @@ namespace HammerModel.Model.Structures
                 Width = Width,
                 Breadth = Breadth,
                 Height = bottomHeight,
-                TextureInfo = BottomTexture
+                TextureInfo = WallTexture.Bottom
             };
             Block topCube = new Block
             {
@@ -46,7 +45,7 @@ namespace HammerModel.Model.Structures
                 Width = Width,
                 Breadth = Breadth,
                 Height = topHeight,
-                TextureInfo = TopTexture
+                TextureInfo = WallTexture.Top
             };
 
             cubeList.AddRange(bottomCube.ToWorldObject());

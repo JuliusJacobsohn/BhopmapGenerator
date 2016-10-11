@@ -115,7 +115,7 @@ namespace HammerModel.Model
                     Y3 = y + breadth,
                     Z3 = z + height,
                 },
-                Material = textureInfo.SideTexture,
+                Material = textureInfo.DefaultTexture,
                 UAxis = new Axis
                 {
                     X = 0,
@@ -150,7 +150,7 @@ namespace HammerModel.Model
                     Y3 = y,// + size,
                     Z3 = z + height,
                 },
-                Material = textureInfo.SideTexture,
+                Material = textureInfo.DefaultTexture,
                 UAxis = new Axis
                 {
                     X = 0,
@@ -185,7 +185,7 @@ namespace HammerModel.Model
                     Y3 = y + breadth,
                     Z3 = z + height,
                 },
-                Material = textureInfo.SideTexture,
+                Material = textureInfo.DefaultTexture,
                 UAxis = new Axis
                 {
                     X = 1,
@@ -220,7 +220,7 @@ namespace HammerModel.Model
                     Y3 = y,// + size,
                     Z3 = z + height,
                 },
-                Material = textureInfo.SideTexture,
+                Material = textureInfo.DefaultTexture,
                 UAxis = new Axis
                 {
                     X = 1,

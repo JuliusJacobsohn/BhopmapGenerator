@@ -16,7 +16,7 @@ namespace HammerModel.Model.Structures
         public int Width { get; set; }
         public int Breadth { get; set; }
         public int Height { get; set; }
-        public TextureInfo WallTextureInfo { get; set; }
+        public WallTextureInfo WallTextureInfo { get; set; }
         public TextureInfo FloorTextureInfo { get; set; }
         public TextureInfo CeilingTextureInfo { get; set; }
 
@@ -54,8 +54,7 @@ namespace HammerModel.Model.Structures
                 Breadth = StandardValues.WALL_SIZE,
                 Height = Height - StandardValues.WALL_SIZE * 2,
                 BottomPercentage = StandardValues.BOTTOM_PERECENTAGE,
-                BottomTexture = WallTextureInfo,
-                TopTexture = TextureInfo.GetDefault()
+                WallTexture = WallTextureInfo
             };
             roomList.AddRange(backWall.ToWorldObject());
             Wall frontWall = new Wall
@@ -67,8 +66,7 @@ namespace HammerModel.Model.Structures
                 Breadth = StandardValues.WALL_SIZE,
                 Height = Height - StandardValues.WALL_SIZE * 2,
                 BottomPercentage = StandardValues.BOTTOM_PERECENTAGE,
-                BottomTexture = WallTextureInfo,
-                TopTexture = TextureInfo.GetDefault()
+                WallTexture = WallTextureInfo
             };
             roomList.AddRange(frontWall.ToWorldObject());
             Wall rightWall = new Wall
@@ -80,8 +78,7 @@ namespace HammerModel.Model.Structures
                 Breadth = Breadth - StandardValues.WALL_SIZE * 2,
                 Height = Height - StandardValues.WALL_SIZE * 2,
                 BottomPercentage = StandardValues.BOTTOM_PERECENTAGE,
-                BottomTexture = WallTextureInfo,
-                TopTexture = TextureInfo.GetDefault()
+                WallTexture = WallTextureInfo
             };
             roomList.AddRange(rightWall.ToWorldObject());
             Wall leftWall = new Wall
@@ -93,8 +90,7 @@ namespace HammerModel.Model.Structures
                 Breadth = Breadth - StandardValues.WALL_SIZE * 2,
                 Height = Height - StandardValues.WALL_SIZE * 2,
                 BottomPercentage = StandardValues.BOTTOM_PERECENTAGE,
-                BottomTexture = WallTextureInfo,
-                TopTexture = TextureInfo.GetDefault()
+                WallTexture = WallTextureInfo
             };
             roomList.AddRange(leftWall.ToWorldObject());
 
