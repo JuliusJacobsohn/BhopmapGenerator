@@ -9,9 +9,8 @@ namespace HammerModel.Model.Structures
 {
     public abstract class BhopChallenge
     {
-        public Block Start { get; set; }
+        protected Block Start { get; set; }
         public Teleport FailTeleport { get; set; }
-        public int Difficulty { get; set; }
-        public double RoomPercentage { get; set; }
+        public double Difficulty { get; set; }
     }
 }

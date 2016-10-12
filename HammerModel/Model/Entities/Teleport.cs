@@ -16,26 +16,26 @@ namespace HammerModel.Model.Entities
         public int Width { get; set; }
         public int Breadth { get; set; }
         public int Height { get; set; }
-        public BlockTexture TextureInfo
-        {
-            get
-            {
-                return new BlockTexture
-                {
-                    TopTexture = "tools/toolstrigger",
-                    DefaultTexture = "tools/toolstrigger"
-                };
-            }
-        }
         public string Target { get; set; }
 
         public List<Entity> ToWorldEntity()
         {
             List<Entity> entityList = new List<Entity>();
 
+            BlockTexture texture = new BlockTexture
+            {
+                TopTexture = "tools/toolstrigger",
+                DefaultTexture = "tools/toolstrigger"
+            };
             TriggerTeleport tp = new TriggerTeleport
             {
-                Solid = new Solid(X, Y, Z, Width, Breadth, Height, TextureInfo),
+                Solid = new Solid(X, Y, Z, Width, Breadth, Height, texture),
+                X = X,
+                Y = Y,
+                Z = Z,
+                Width = Width,
+                Breadth = Breadth,
+                Height = Height,
                 Target = Target,
                 Editor = Editor.GetDefault()
             };

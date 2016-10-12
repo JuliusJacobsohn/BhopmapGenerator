@@ -13,27 +13,7 @@ namespace Samples
 {
     class Program
     {
-        static BlockTexture Orange = new BlockTexture
-        {
-            TopTexture = "dev/dev_measuregeneric01",
-            DefaultTexture = "dev/dev_measuregeneric01"
-        };
-        static BlockTexture LightGray = new BlockTexture
-        {
-            TopTexture = "dev/graygrid",
-            DefaultTexture = "dev/graygrid"
-        };
-        static BlockTexture DarkGray = new BlockTexture
-        {
-            TopTexture = "dev/dev_measuregeneric01b",
-            DefaultTexture = "dev/dev_measuregeneric01b"
-        };
-        static WallTexture WallTexture = new WallTexture
-        {
-            Bottom = Orange,
-            Top = DarkGray
-        };
-        static TexturePack TexturePack { get; set; }
+        static TexturePack TexturePack = TexturePack.GetDefault();
 
         static void Main(string[] args)
         {
