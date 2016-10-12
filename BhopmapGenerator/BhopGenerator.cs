@@ -14,7 +14,7 @@ namespace BhopmapGenerator
         public BhopGenerator()
         {
             Map m = new Map();
-            BhopRoom r = new BhopRoom(0, 0, 0, 4096 * 4, 512, 512, TexturePack);
+            BhopRoom r = new BhopRoom(0, 0, 0, 4096 * 3, 512, 512, TexturePack);
 
             BhopSimpleChallenge c11 = new BhopSimpleChallenge
             {
