@@ -68,7 +68,14 @@ namespace BhopmapGenerator
                 Width = 100,
                 Breadth = 100,
                 Height = 100,
-                Target = "TelepORTererr"
+                Target = "test_dest_1"
+            };
+            TeleportDestination td = new TeleportDestination
+            {
+                Name = "test_dest_1",
+                X = 128,
+                Y = 200,
+                Z = 20
             };
 
             Spawn t = new Spawn
@@ -106,6 +113,7 @@ namespace BhopmapGenerator
             m.AddWorldObject(r);
             m.AddWorldObject(r2);
             m.AddEntity(tp);
+            m.AddEntity(td);
 
             //for(int i = 0; i < 50; i++)
             //{

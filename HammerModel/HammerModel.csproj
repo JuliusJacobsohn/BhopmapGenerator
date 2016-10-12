@@ -39,6 +39,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\InfoTeleportDestination.cs" />
     <Compile Include="Model\Misc\Axis.cs" />
     <Compile Include="Model\HammerObject.cs" />
     <Compile Include="Model\Misc\CoordinateTriple.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Model\Structures\Room.cs" />
     <Compile Include="Model\Structures\Spawn.cs" />
     <Compile Include="Model\Structures\Teleport.cs" />
+    <Compile Include="Model\Structures\TeleportDestination.cs" />
     <Compile Include="Model\Structures\Wall.cs" />
     <Compile Include="Model\Misc\TextureInfo.cs" />
     <Compile Include="Model\Structures\WorldLight.cs" />
