@@ -1,5 +1,5 @@
 ﻿using HammerModel.Helpers;
-using HammerModel.Model.Misc;
+using HammerModel.Model.Units;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,14 +33,13 @@ namespace HammerModel.Model
             }
         }
         public LightValue _Light { get; set; }
-        public LightValue _LightHDR { get; set; }
+        public LightValue _LightHDR = LightValue.GetDefault();
         public int _LightScaleHDR = 1; //TODO: Is this really an int?
         public int _QuadraticAttn = 1; //TODO: Is this really an int?
 
         public override string ToString()
         {
             Editor = Editor.GetDefault();
-            _LightHDR = LightValue.GetDefault();
             return HONHelper.GetHonObjectBody("entity",
                 HONHelper.GetKeyValuePair("id", Id),
                 HONHelper.GetKeyValuePair("classname", ClassName),

@@ -1,5 +1,5 @@
 ﻿using HammerModel.Model;
-using HammerModel.Model.Misc;
+
 using HammerModel.Model.Structures;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HammerModel.Model.Structures
 {
-    public class Wall : IWorldObject
+    public class Wall : TextureObject
     {
         public int X { get; set; }
         public int Y { get; set; }
@@ -18,9 +18,8 @@ namespace HammerModel.Model.Structures
         public int Breadth { get; set; }
         public int Height { get; set; }
         public double BottomPercentage { get; set; }
-        public WallTextureInfo WallTexture { get; set; }
 
-        public List<Solid> ToWorldObject()
+        public override List<Solid> ToWorldObject()
         {
             List<Solid> cubeList = new List<Solid>();
 
@@ -35,7 +34,7 @@ namespace HammerModel.Model.Structures
                 Width = Width,
                 Breadth = Breadth,
                 Height = bottomHeight,
-                TextureInfo = WallTexture.Bottom
+                Texture = TexturePack.WallTexture.Bottom
             };
             Block topCube = new Block
             {
@@ -45,7 +44,7 @@ namespace HammerModel.Model.Structures
                 Width = Width,
                 Breadth = Breadth,
                 Height = topHeight,
-                TextureInfo = WallTexture.Top
+                Texture = TexturePack.WallTexture.Top
             };
 
             cubeList.AddRange(bottomCube.ToWorldObject());

@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace HammerModel.Model.Structures
 {
-    public interface IWorldObject
+    public abstract class WorldObject
     {
-        List<Solid> ToWorldObject();
+        public abstract List<Solid> ToWorldObject();
     }
 }

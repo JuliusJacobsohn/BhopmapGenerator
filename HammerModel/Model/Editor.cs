@@ -1,5 +1,6 @@
 ﻿using HammerModel.Helpers;
-using HammerModel.Model.Misc;
+using HammerModel.Model.Textures;
+using HammerModel.Model.Units;
 using System;
 
 namespace HammerModel.Model

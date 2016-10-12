@@ -1,42 +1,19 @@
 ﻿using HammerModel.Model;
-using HammerModel.Model.Misc;
+using HammerModel.Model.Entities;
 using HammerModel.Model.Structures;
+using HammerModel.Model.Textures;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BhopmapGenerator
 {
     public class BhopGenerator
     {
-        private TextureInfo Orange = new TextureInfo
-        {
-            TopTexture = "dev/dev_measuregeneric01",
-            DefaultTexture = "dev/dev_measuregeneric01"
-        };
-        private TextureInfo LightGray = new TextureInfo
-        {
-            TopTexture = "dev/graygrid",
-            DefaultTexture = "dev/graygrid"
-        };
-        private TextureInfo DarkGray = new TextureInfo
-        {
-            TopTexture = "dev/dev_measuregeneric01b",
-            DefaultTexture = "dev/dev_measuregeneric01b"
-        };
-        private WallTextureInfo WallTexture;
+        private TexturePack TexturePack = TexturePack.GetDefault();
         public BhopGenerator()
         {
-            WallTexture = new WallTextureInfo
-            {
-                Bottom = Orange,
-                Top = DarkGray
-            };
             Map m = new Map();
-            Room r = new Room
+            SimpleRoom r = new SimpleRoom
             {
                 X = 0,
                 Y = 0,
@@ -44,21 +21,17 @@ namespace BhopmapGenerator
                 Width = 1024,
                 Breadth = 512,
                 Height = 256,
-                CeilingTextureInfo = LightGray,
-                FloorTextureInfo = DarkGray,
-                WallTextureInfo = WallTexture
+                TexturePack = TexturePack
             };
-            Room r2 = new Room
+            SimpleRoom r2 = new SimpleRoom
             {
                 X = 0,
-                Y = 0,
-                Z = 256,
+                Y = 512,
+                Z = 0,
                 Width = 4096,
-                Breadth = 1024,
-                Height = 128,
-                CeilingTextureInfo = LightGray,
-                FloorTextureInfo = DarkGray,
-                WallTextureInfo = WallTexture
+                Breadth = 512,
+                Height = 256,
+                TexturePack = TexturePack
             };
             Teleport tp = new Teleport
             {
@@ -74,7 +47,7 @@ namespace BhopmapGenerator
             {
                 Name = "test_dest_1",
                 X = 128,
-                Y = 200,
+                Y = 712,
                 Z = 20
             };
 
@@ -105,15 +78,15 @@ namespace BhopmapGenerator
                     B = 255,
                     A = 200,
                 };
-                m.AddEntity(l);
+                m.AddWorldEntity(l);
             }
 
-            m.AddEntity(t);
-            m.AddEntity(ct);
+            m.AddWorldEntity(t);
+            m.AddWorldEntity(ct);
             m.AddWorldObject(r);
             m.AddWorldObject(r2);
-            m.AddEntity(tp);
-            m.AddEntity(td);
+            m.AddWorldEntity(tp);
+            m.AddWorldEntity(td);
 
             //for(int i = 0; i < 50; i++)
             //{

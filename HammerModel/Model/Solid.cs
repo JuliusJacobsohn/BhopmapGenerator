@@ -1,5 +1,6 @@
 ﻿using HammerModel.Helpers;
-using HammerModel.Model.Misc;
+using HammerModel.Model.Textures;
+using HammerModel.Model.Units;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,11 +22,11 @@ namespace HammerModel.Model
         public Side Side6 { get; set; }
         public Editor Editor { get; set; }
 
-        public Solid(int x, int y, int z, int width, int breadth, int height, TextureInfo textureInfo = null)
+        public Solid(int x, int y, int z, int width, int breadth, int height, BlockTexture textureInfo = null)
         {
             if(textureInfo == null)
             {
-                textureInfo = TextureInfo.GetDefault();
+                textureInfo = BlockTexture.GetDefault();
             }
 
             X = x;

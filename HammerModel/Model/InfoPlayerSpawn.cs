@@ -1,6 +1,6 @@
 ﻿using HammerModel.Helpers;
 using HammerModel.Model;
-using HammerModel.Model.Misc;
+using HammerModel.Model.Units;
 using System;
 using System.Collections.Generic;
 using System.Linq;

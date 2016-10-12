@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HammerModel.Model.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +12,6 @@ namespace HammerModel.Model.Structures
         public Block Start { get; set; }
         public Teleport FailTeleport { get; set; }
         public int Difficulty { get; set; }
+        public double RoomPercentage { get; set; }
     }
 }

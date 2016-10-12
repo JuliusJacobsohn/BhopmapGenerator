@@ -1,5 +1,5 @@
 ﻿using HammerModel.Helpers;
-using HammerModel.Model.Misc;
+
 using System.Collections.Generic;
 
 namespace HammerModel.Model

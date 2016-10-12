@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HammerModel.Model;
 
-namespace HammerModel.Model.Structures
+namespace HammerModel.Model.Entities
 {
     public class Spawn : IWorldEntity
     {

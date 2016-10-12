@@ -1,4 +1,5 @@
-﻿using HammerModel.Model.Structures;
+﻿using HammerModel.Model.Entities;
+using HammerModel.Model.Structures;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace HammerModel.Model
 {
     public class Map
     {
-        public Map()
+        public Map(bool hasEnviromentLight = true)
         {
             World = new World
             {
@@ -23,6 +24,17 @@ namespace HammerModel.Model
                 Groups = new List<Editor>()
             };
             Entities = new List<Entity>();
+            if (hasEnviromentLight)
+            {
+                WorldEnviromentLight light = new WorldEnviromentLight
+                {
+                    R = 255,
+                    G = 255,
+                    B = 255,
+                    A = 200
+                };
+                AddWorldEntity(light);
+            }
         }
         public World World { get; set; }
         public List<Entity> Entities { get; set; }
@@ -38,13 +50,12 @@ namespace HammerModel.Model
                 entityString;
         }
 
-        public void AddWorldObject(IWorldObject o)
+        public void AddWorldObject(WorldObject o)
         {
             World.Solids.AddRange(o.ToWorldObject());
-            //World.Groups.AddRange(o.) TODO
         }
 
-        public void AddEntity(IWorldEntity e)
+        public void AddWorldEntity(IWorldEntity e)
         {
             Entities.AddRange(e.ToWorldEntity());
         }

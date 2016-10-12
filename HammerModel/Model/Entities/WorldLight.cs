@@ -1,10 +1,11 @@
-﻿using System;
+﻿using HammerModel.Model.Units;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HammerModel.Model.Structures
+namespace HammerModel.Model.Entities
 {
     public class WorldLight : HammerObject, IWorldEntity
     {
@@ -25,7 +26,7 @@ namespace HammerModel.Model.Structures
                 X = X,
                 Y = Y,
                 Z = Z,
-                _Light = new Misc.LightValue
+                _Light = new LightValue
                 {
                     R = R,
                     G = G,

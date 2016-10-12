@@ -1,4 +1,5 @@
-﻿using HammerModel.Model.Misc;
+﻿
+using HammerModel.Model.Textures;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HammerModel.Model.Structures
 {
-    public class Block : IWorldObject
+    public class Block : WorldObject
     {
         public int X { get; set; }
         public int Y { get; set; }
@@ -15,13 +16,13 @@ namespace HammerModel.Model.Structures
         public int Width { get; set; }
         public int Breadth { get; set; }
         public int Height { get; set; }
-        public TextureInfo TextureInfo { get; set; }
+        public BlockTexture Texture { get; set; }
 
-        public List<Solid> ToWorldObject()
+        public override List<Solid> ToWorldObject()
         {
             List<Solid> cubeList = new List<Solid>();
 
-            cubeList.Add(new Solid(X, Y, Z, Width, Breadth, Height, TextureInfo));
+            cubeList.Add(new Solid(X, Y, Z, Width, Breadth, Height, Texture));
 
             return cubeList;
         }

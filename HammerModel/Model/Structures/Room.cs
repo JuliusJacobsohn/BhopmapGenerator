@@ -1,5 +1,5 @@
 ﻿using HammerModel.Helpers;
-using HammerModel.Model.Misc;
+
 using HammerModel.Model.Structures;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HammerModel.Model.Structures
 {
-    public class Room : IWorldObject
+    public abstract class Room : TextureObject
     {
         public int X { get; set; }
         public int Y { get; set; }
@@ -17,11 +17,16 @@ namespace HammerModel.Model.Structures
         public int Width { get; set; }
         public int Breadth { get; set; }
         public int Height { get; set; }
-        public WallTextureInfo WallTextureInfo { get; set; }
-        public TextureInfo FloorTextureInfo { get; set; }
-        public TextureInfo CeilingTextureInfo { get; set; }
 
-        public List<Solid> ToWorldObject()
+        /// <summary>
+        /// Protected ctor to let child classes choose wether they can be initialized with an instanciator or not
+        /// </summary>
+        protected Room()
+        {
+
+        }
+
+        public override List<Solid> ToWorldObject()
         {
             List<Solid> roomList = new List<Solid>();
             Block floor = new Block
@@ -32,7 +37,7 @@ namespace HammerModel.Model.Structures
                 Width = Width,
                 Breadth = Breadth,
                 Height = StandardValues.WALL_SIZE,
-                TextureInfo = FloorTextureInfo
+                Texture = TexturePack.FloorTexture
             };
             roomList.AddRange(floor.ToWorldObject());
             Block ceiling = new Block
@@ -43,7 +48,7 @@ namespace HammerModel.Model.Structures
                 Width = Width,
                 Breadth = Breadth,
                 Height = StandardValues.WALL_SIZE,
-                TextureInfo = CeilingTextureInfo
+                Texture = TexturePack.CeilingTexture
             };
             roomList.AddRange(ceiling.ToWorldObject());
             Wall backWall = new Wall
@@ -55,7 +60,7 @@ namespace HammerModel.Model.Structures
                 Breadth = StandardValues.WALL_SIZE,
                 Height = Height - StandardValues.WALL_SIZE * 2,
                 BottomPercentage = StandardValues.BOTTOM_PERECENTAGE,
-                WallTexture = WallTextureInfo
+                TexturePack = TexturePack
             };
             roomList.AddRange(backWall.ToWorldObject());
             Wall frontWall = new Wall
@@ -67,7 +72,7 @@ namespace HammerModel.Model.Structures
                 Breadth = StandardValues.WALL_SIZE,
                 Height = Height - StandardValues.WALL_SIZE * 2,
                 BottomPercentage = StandardValues.BOTTOM_PERECENTAGE,
-                WallTexture = WallTextureInfo
+                TexturePack = TexturePack
             };
             roomList.AddRange(frontWall.ToWorldObject());
             Wall rightWall = new Wall
@@ -79,7 +84,7 @@ namespace HammerModel.Model.Structures
                 Breadth = Breadth - StandardValues.WALL_SIZE * 2,
                 Height = Height - StandardValues.WALL_SIZE * 2,
                 BottomPercentage = StandardValues.BOTTOM_PERECENTAGE,
-                WallTexture = WallTextureInfo
+                TexturePack = TexturePack
             };
             roomList.AddRange(rightWall.ToWorldObject());
             Wall leftWall = new Wall
@@ -91,7 +96,7 @@ namespace HammerModel.Model.Structures
                 Breadth = Breadth - StandardValues.WALL_SIZE * 2,
                 Height = Height - StandardValues.WALL_SIZE * 2,
                 BottomPercentage = StandardValues.BOTTOM_PERECENTAGE,
-                WallTexture = WallTextureInfo
+                TexturePack = TexturePack
             };
             roomList.AddRange(leftWall.ToWorldObject());
 

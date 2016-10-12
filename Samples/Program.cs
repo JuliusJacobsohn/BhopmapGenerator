@@ -6,40 +6,42 @@ using System.Text;
 using System.Threading.Tasks;
 using HammerModel.Model;
 using HammerModel.Model.Structures;
-using HammerModel.Model.Misc;
+using HammerModel.Model.Textures;
+using HammerModel.Model.Entities;
 
 namespace Samples
 {
     class Program
     {
-        static TextureInfo Orange = new TextureInfo
+        static BlockTexture Orange = new BlockTexture
         {
             TopTexture = "dev/dev_measuregeneric01",
             DefaultTexture = "dev/dev_measuregeneric01"
         };
-        static TextureInfo LightGray = new TextureInfo
+        static BlockTexture LightGray = new BlockTexture
         {
             TopTexture = "dev/graygrid",
             DefaultTexture = "dev/graygrid"
         };
-        static TextureInfo DarkGray = new TextureInfo
+        static BlockTexture DarkGray = new BlockTexture
         {
             TopTexture = "dev/dev_measuregeneric01b",
             DefaultTexture = "dev/dev_measuregeneric01b"
         };
-        static WallTextureInfo WallTexture = new WallTextureInfo
-            {
-                Bottom = Orange,
-                Top = DarkGray
-    };
+        static WallTexture WallTexture = new WallTexture
+        {
+            Bottom = Orange,
+            Top = DarkGray
+        };
+        static TexturePack TexturePack { get; set; }
 
-    static void Main(string[] args)
+        static void Main(string[] args)
         {
             //Creating a simple Map
             Map m = new Map();
 
             //Create a room and add it to the map
-            Room room = new Room
+            SimpleRoom room = new SimpleRoom
             {
                 X = 0,
                 Y = 0,
@@ -47,9 +49,7 @@ namespace Samples
                 Width = 1024,
                 Breadth = 512,
                 Height = 384,
-                CeilingTextureInfo = LightGray,
-                FloorTextureInfo = DarkGray,
-                WallTextureInfo = WallTexture
+                TexturePack = TexturePack
             };
             m.AddWorldObject(room);
 
@@ -70,8 +70,8 @@ namespace Samples
                     Y = 50 + i * 100,
                     Z = 10
                 };
-                m.AddEntity(t);
-                m.AddEntity(ct);
+                m.AddWorldEntity(t);
+                m.AddWorldEntity(ct);
             }
 
             //Create lights over the spawns
@@ -89,8 +89,8 @@ namespace Samples
                     Y = 50 + i * 100,
                     Z = 256
                 };
-                m.AddEntity(tLight);
-                m.AddEntity(ctLight);
+                m.AddWorldEntity(tLight);
+                m.AddWorldEntity(ctLight);
             }
 
             //Create blocks to protect the spawn area and fill the map
@@ -103,7 +103,7 @@ namespace Samples
                 Breadth = 450,
                 Height = 80,
                 BottomPercentage = 0.7,
-                WallTexture = WallTexture
+                TexturePack = TexturePack
             };
             Wall ctBlock = new Wall
             {
@@ -114,7 +114,7 @@ namespace Samples
                 Breadth = 450,
                 Height = 80,
                 BottomPercentage = 0.7,
-                WallTexture = WallTexture
+                TexturePack = TexturePack
             };
             m.AddWorldObject(tBlock);
             m.AddWorldObject(ctBlock);

@@ -1,11 +1,12 @@
-﻿using HammerModel.Model.Misc;
+﻿
+using HammerModel.Model.Textures;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HammerModel.Model.Structures
+namespace HammerModel.Model.Entities
 {
     public class Teleport : IWorldEntity
     {
@@ -15,11 +16,11 @@ namespace HammerModel.Model.Structures
         public int Width { get; set; }
         public int Breadth { get; set; }
         public int Height { get; set; }
-        public TextureInfo TextureInfo
+        public BlockTexture TextureInfo
         {
             get
             {
-                return new TextureInfo
+                return new BlockTexture
                 {
                     TopTexture = "tools/toolstrigger",
                     DefaultTexture = "tools/toolstrigger"

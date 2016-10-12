@@ -1,4 +1,4 @@
-﻿namespace HammerModel.Model.Misc
+﻿namespace HammerModel.Model.Units
 {
     public class CoordinateTriple
     {
