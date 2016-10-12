@@ -18,5 +18,6 @@ namespace HammerModel.Helpers
 
         public const int BHOP_BLOCK_WIDTH = 64;
         public const int BHOP_BLOCK_HEIGHT = 16;
+        public const int BHOP_OBSTACLE_HEIGHT = 128;
     }
 }

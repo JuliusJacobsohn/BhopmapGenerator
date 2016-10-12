@@ -9,6 +9,7 @@ namespace HammerModel.Model.Textures
     public class TexturePack
     {
         public BlockTexture StandardTexture { get; set; }
+        public BlockTexture AlternativeTexture { get; set; }
         public WallTexture WallTexture { get; set; }
         public BlockTexture FloorTexture { get; set; }
         public BlockTexture CeilingTexture { get; set; }
@@ -35,6 +36,11 @@ namespace HammerModel.Model.Textures
                 {
                     DefaultTexture = orange,
                     TopTexture = orange
+                },
+                AlternativeTexture = new BlockTexture
+                {
+                    DefaultTexture = lightGray,
+                    TopTexture = lightGray
                 },
                 WallTexture = new WallTexture
                 {

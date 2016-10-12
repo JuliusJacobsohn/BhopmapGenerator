@@ -43,7 +43,9 @@
     <Compile Include="Model\InfoTeleportDestination.cs" />
     <Compile Include="Model\LightEnviroment.cs" />
     <Compile Include="Model\Structures\BhopBlock.cs" />
-    <Compile Include="Model\Structures\BhopSimple.cs" />
+    <Compile Include="Model\Structures\BhopFrameChallenge.cs" />
+    <Compile Include="Model\Structures\BhopObstacleChallenge.cs" />
+    <Compile Include="Model\Structures\BhopSimpleChallenge.cs" />
     <Compile Include="Model\Structures\ISpawnable.cs" />
     <Compile Include="Model\Structures\TextureObject.cs" />
     <Compile Include="Model\Units\Axis.cs" />

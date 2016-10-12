@@ -14,29 +14,92 @@ namespace BhopmapGenerator
         public BhopGenerator()
         {
             Map m = new Map();
-            BhopRoom r = new BhopRoom(0, 0, 0, 4096, 512, 512, TexturePack);
+            BhopRoom r = new BhopRoom(0, 0, 0, 4096 * 4, 512, 512, TexturePack);
 
-            BhopSimple c1 = new BhopSimple
+            BhopSimpleChallenge c11 = new BhopSimpleChallenge
             {
                 ChallengeID = HONHelper.GetUniqueId(),
                 Difficulty = 1,
                 TexturePack = TexturePack
             };
-            BhopSimple c2 = new BhopSimple
+            BhopSimpleChallenge c12 = new BhopSimpleChallenge
             {
                 ChallengeID = HONHelper.GetUniqueId(),
                 Difficulty = 1,
                 TexturePack = TexturePack
             };
-            BhopSimple c3 = new BhopSimple
+            BhopSimpleChallenge c13 = new BhopSimpleChallenge
             {
                 ChallengeID = HONHelper.GetUniqueId(),
                 Difficulty = 1,
                 TexturePack = TexturePack
             };
-            r.AddChallenge(c1, 0.2);
-            r.AddChallenge(c2, 0.3);
-            r.AddChallenge(c3, 0.5);
+            BhopSimpleChallenge c14 = new BhopSimpleChallenge
+            {
+                ChallengeID = HONHelper.GetUniqueId(),
+                Difficulty = 1,
+                TexturePack = TexturePack
+            };
+            BhopObstacleChallenge c21 = new BhopObstacleChallenge
+            {
+                ChallengeID = HONHelper.GetUniqueId(),
+                Difficulty = 1,
+                TexturePack = TexturePack
+            };
+            BhopObstacleChallenge c22 = new BhopObstacleChallenge
+            {
+                ChallengeID = HONHelper.GetUniqueId(),
+                Difficulty = 1,
+                TexturePack = TexturePack
+            };
+            BhopObstacleChallenge c23 = new BhopObstacleChallenge
+            {
+                ChallengeID = HONHelper.GetUniqueId(),
+                Difficulty = 1,
+                TexturePack = TexturePack
+            };
+            BhopObstacleChallenge c24 = new BhopObstacleChallenge
+            {
+                ChallengeID = HONHelper.GetUniqueId(),
+                Difficulty = 1,
+                TexturePack = TexturePack
+            };
+            BhopFrameChallenge c31 = new BhopFrameChallenge
+            {
+                ChallengeID = HONHelper.GetUniqueId(),
+                Difficulty = 1,
+                TexturePack = TexturePack
+            };
+            BhopFrameChallenge c32 = new BhopFrameChallenge
+            {
+                ChallengeID = HONHelper.GetUniqueId(),
+                Difficulty = 1,
+                TexturePack = TexturePack
+            };
+            BhopFrameChallenge c33 = new BhopFrameChallenge
+            {
+                ChallengeID = HONHelper.GetUniqueId(),
+                Difficulty = 1,
+                TexturePack = TexturePack
+            };
+            BhopFrameChallenge c34 = new BhopFrameChallenge
+            {
+                ChallengeID = HONHelper.GetUniqueId(),
+                Difficulty = 1,
+                TexturePack = TexturePack
+            };
+            r.AddChallenge(c11, 0.05);
+            r.AddChallenge(c12, 0.05);
+            r.AddChallenge(c13, 0.07);
+            r.AddChallenge(c14, 0.08);
+            r.AddChallenge(c21, 0.05);
+            r.AddChallenge(c22, 0.05);
+            r.AddChallenge(c23, 0.07);
+            r.AddChallenge(c24, 0.08);
+            r.AddChallenge(c31, 0.05);
+            r.AddChallenge(c32, 0.05);
+            r.AddChallenge(c33, 0.07);
+            r.AddChallenge(c34, 0.08);
 
             m.AddWorldObject(r);
 
