@@ -13,15 +13,17 @@ namespace HammerModel.Model.Structures
     {
         private Block Start;
         private Block End;
-        private List<BhopChallenge> Challenges;
+        private List<Tuple<BhopChallenge, double>> Challenges;
         public BhopRoom(int x, int y, int z, int width, int breadth, int height, TexturePack texturePack) : base()
         {
+            Challenges = new List<Tuple<BhopChallenge, double>>();
             X = x;
             Y = y;
             Z = z;
             Width = width;
             Breadth = breadth;
-            Height = Height;
+            Height = height;
+
             TexturePack = texturePack;
             Start = new Block
             {
@@ -29,10 +31,15 @@ namespace HammerModel.Model.Structures
                 Y = y + StandardValues.WALL_SIZE,
                 Z = z + StandardValues.WALL_SIZE,
                 Width = 256,
-                Breadth = breadth-StandardValues.WALL_SIZE*2,
+                Breadth = breadth - StandardValues.WALL_SIZE * 2,
                 Height = 64,
                 Texture = texturePack.StandardTexture
             };
+        }
+
+        public void AddChallenge(BhopChallenge challenge, double percentageOfRoom)
+        {
+            Challenges.Add(new Tuple<BhopChallenge, double>(challenge, percentageOfRoom));
         }
 
         public IntTriple GetStartLocation()
@@ -46,6 +53,66 @@ namespace HammerModel.Model.Structures
                 Y = y,
                 Z = z
             };
+        }
+
+        public override List<HammerObject> ToHammerObject()
+        {
+            List<HammerObject> objectList = base.ToHammerObject();
+
+
+            Start = new Block
+            {
+                X = X + StandardValues.WALL_SIZE,
+                Y = Y + StandardValues.WALL_SIZE,
+                Z = Z + StandardValues.WALL_SIZE,
+                Width = StandardValues.CHALLENGE_START_WIDTH,
+                Breadth = Breadth - (StandardValues.WALL_SIZE * 2),
+                Height = StandardValues.CHALLENGE_HEIGHT,
+                Texture = TexturePack.FloorTexture
+            };
+            objectList.AddRange(Start.ToHammerObject());
+
+            int oldX = Start.Width;
+
+            int dWidth = Width - (StandardValues.WALL_SIZE * 2) - (StandardValues.CHALLENGE_START_WIDTH * 2);
+            int tWidth = 0;
+
+            foreach (var tuple in Challenges)
+            {
+                var challenge = tuple.Item1;
+                var percentage = tuple.Item2;
+
+                challenge.X = X + oldX + StandardValues.WALL_SIZE;
+                challenge.Y = Y + StandardValues.WALL_SIZE;
+                challenge.Z = Z + StandardValues.WALL_SIZE;
+                challenge.Width = (int)((Width - StandardValues.CHALLENGE_START_WIDTH * 2 - StandardValues.WALL_SIZE * 2) * percentage);
+                challenge.Breadth = Breadth - (StandardValues.WALL_SIZE * 2);
+                challenge.Height = StandardValues.CHALLENGE_HEIGHT;
+
+
+                oldX = oldX + challenge.Width;
+                tWidth = tWidth + challenge.Width;
+                if (challenge == Challenges.Last().Item1 && dWidth - tWidth != 0)
+                {
+                    challenge.Width = challenge.Width + (dWidth - tWidth);
+                }
+                objectList.AddRange(challenge.ToHammerObject());
+            }
+
+
+            End = new Block
+            {
+                X = X + Width - (StandardValues.CHALLENGE_START_WIDTH + StandardValues.WALL_SIZE),
+                Y = Y + StandardValues.WALL_SIZE,
+                Z = Z + StandardValues.WALL_SIZE,
+                Width = StandardValues.CHALLENGE_START_WIDTH,
+                Breadth = Breadth - (StandardValues.WALL_SIZE * 2),
+                Height = StandardValues.CHALLENGE_HEIGHT,
+                Texture = TexturePack.FloorTexture
+            };
+            objectList.AddRange(End.ToHammerObject());
+
+            return objectList;
         }
     }
 }

@@ -14,43 +14,31 @@ namespace BhopmapGenerator
         public BhopGenerator()
         {
             Map m = new Map();
-            SimpleRoom r = new SimpleRoom
-            {
-                X = 0,
-                Y = 0,
-                Z = 0,
-                Width = 2048,
-                Breadth = 512,
-                Height = 512,
-                TexturePack = TexturePack
-            };
-            m.AddWorldObject(r);
-
-            SimpleRoom r2 = new SimpleRoom
-            {
-                X = 0,
-                Y = 512,
-                Z = 0,
-                Width = 4096,
-                Breadth = 512,
-                Height = 256,
-                TexturePack = TexturePack
-            };
-            m.AddWorldObject(r2);
+            BhopRoom r = new BhopRoom(0, 0, 0, 4096, 512, 512, TexturePack);
 
             BhopSimple c1 = new BhopSimple
             {
-                X = StandardValues.WALL_SIZE,
-                Y = StandardValues.WALL_SIZE,
-                Z = StandardValues.WALL_SIZE,
-                Width = r.Width - StandardValues.WALL_SIZE * 2,
-                Breadth = r.Breadth - StandardValues.WALL_SIZE * 2,
-                Height = StandardValues.CHALLENGE_HEIGHT,
                 ChallengeID = HONHelper.GetUniqueId(),
                 Difficulty = 1,
                 TexturePack = TexturePack
             };
-            m.AddWorldObject(c1);
+            BhopSimple c2 = new BhopSimple
+            {
+                ChallengeID = HONHelper.GetUniqueId(),
+                Difficulty = 1,
+                TexturePack = TexturePack
+            };
+            BhopSimple c3 = new BhopSimple
+            {
+                ChallengeID = HONHelper.GetUniqueId(),
+                Difficulty = 1,
+                TexturePack = TexturePack
+            };
+            r.AddChallenge(c1, 0.2);
+            r.AddChallenge(c2, 0.3);
+            r.AddChallenge(c3, 0.5);
+
+            m.AddWorldObject(r);
 
             Spawn t = new Spawn
             {
@@ -71,7 +59,7 @@ namespace BhopmapGenerator
             m.AddWorldObject(ct);
 
             Console.WriteLine(m.ToString());
-            File.WriteAllText(@"F:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\sdk_content\maps\generated.vmf", m.ToString());
+            File.WriteAllText(@"F:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\sdk_content\maps\bhop_generated.vmf", m.ToString());
         }
     }
 }

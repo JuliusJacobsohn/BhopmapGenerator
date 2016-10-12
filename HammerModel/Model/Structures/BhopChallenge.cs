@@ -28,7 +28,7 @@ namespace HammerModel.Model.Structures
             List<HammerObject> entityList = new List<HammerObject>();
             Start = new Block
             {
-                X = X,
+                X = X ,
                 Y = Y,
                 Z = Z,
                 Width = StandardValues.CHALLENGE_START_WIDTH,
@@ -39,7 +39,7 @@ namespace HammerModel.Model.Structures
             entityList.AddRange(Start.ToHammerObject());
             End = new Block
             {
-                X = X + Width - StandardValues.CHALLENGE_START_WIDTH,
+                X = X + Width - Start.Width,
                 Y = Y,
                 Z = Z,
                 Width = StandardValues.CHALLENGE_START_WIDTH,
