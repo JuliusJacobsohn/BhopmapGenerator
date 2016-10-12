@@ -10,5 +10,6 @@ namespace HammerModel.Helpers
     {
         public const int WALL_SIZE = 8;
         public const double BOTTOM_PERECENTAGE = 0.8;
+        public const int PLAYER_ENTITY_SIZE = 32;
     }
 }
