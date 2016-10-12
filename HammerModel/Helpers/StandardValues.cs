@@ -12,6 +12,7 @@ namespace HammerModel.Helpers
         public const double BOTTOM_PERECENTAGE = 0.8;
         public const int PLAYER_ENTITY_SIZE = 32;
         public const int CHALLENGE_HEIGHT = 64;
-
+        public const int CHALLENGE_START_WIDTH = 256;
+        public const int CHALLENGE_FAIL_HEIGHT = 48;
     }
 }

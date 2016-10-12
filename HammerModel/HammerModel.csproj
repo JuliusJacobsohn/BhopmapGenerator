@@ -42,6 +42,10 @@
     <Compile Include="Model\Entities\WorldEnviromentLight.cs" />
     <Compile Include="Model\InfoTeleportDestination.cs" />
     <Compile Include="Model\LightEnviroment.cs" />
+    <Compile Include="Model\Structures\BhopBlock.cs" />
+    <Compile Include="Model\Structures\BhopSimple.cs" />
+    <Compile Include="Model\Structures\ISpawnable.cs" />
+    <Compile Include="Model\Structures\TextureObject.cs" />
     <Compile Include="Model\Units\Axis.cs" />
     <Compile Include="Model\HammerObject.cs" />
     <Compile Include="Model\Units\CoordinateTriple.cs" />
@@ -61,13 +65,11 @@
     <Compile Include="Model\Structures\BhopChallenge.cs" />
     <Compile Include="Model\Structures\BhopRoom.cs" />
     <Compile Include="Model\Structures\Block.cs" />
-    <Compile Include="Model\Entities\IWorldEntity.cs" />
     <Compile Include="Model\Structures\Room.cs" />
     <Compile Include="Model\Structures\SimpleRoom.cs" />
     <Compile Include="Model\Entities\Spawn.cs" />
     <Compile Include="Model\Entities\Teleport.cs" />
     <Compile Include="Model\Entities\TeleportDestination.cs" />
-    <Compile Include="Model\Structures\TextureObject.cs" />
     <Compile Include="Model\Structures\Wall.cs" />
     <Compile Include="Model\Textures\BlockTexture.cs" />
     <Compile Include="Model\Entities\WorldLight.cs" />

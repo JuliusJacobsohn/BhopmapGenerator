@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HammerModel.Model.Entities
+namespace HammerModel.Model.Structures
 {
-    public interface IWorldEntity
+    public class BhopBlock : Block
     {
-        List<Entity> ToWorldEntity();
+        //TODO: Add Teleport etc
     }
 }

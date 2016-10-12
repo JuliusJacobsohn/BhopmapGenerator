@@ -8,16 +8,16 @@ using HammerModel.Model;
 
 namespace HammerModel.Model.Entities
 {
-    public class Spawn : IWorldEntity
+    public class Spawn : WorldObject
     {
         public int X { get; set; }
         public int Y { get; set; }
         public int Z { get; set; }
         public bool Terrorist { get; set; }
 
-        public List<Entity> ToWorldEntity()
+        public override List<HammerObject> ToHammerObject()
         {
-            List<Entity> entityList = new List<Entity>();
+            List<HammerObject> entityList = new List<HammerObject>();
 
             InfoPlayerSpawn ips = new InfoPlayerSpawn
             {

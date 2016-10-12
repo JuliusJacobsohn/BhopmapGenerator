@@ -20,10 +20,10 @@ namespace HammerModel.Model
                 DetailVbsp = "detail.vbsp",
                 MaxPropScreenWidth = -1,
                 SkyName = "sky_dust",
-                Solids = new List<Solid>(),
+                Solids = new List<HammerObject>(),
                 Groups = new List<Editor>()
             };
-            Entities = new List<Entity>();
+            Entities = new List<HammerObject>();
             if (hasEnviromentLight)
             {
                 WorldEnviromentLight light = new WorldEnviromentLight
@@ -33,11 +33,11 @@ namespace HammerModel.Model
                     B = 255,
                     A = 200
                 };
-                AddWorldEntity(light);
+                AddWorldObject(light);
             }
         }
         public World World { get; set; }
-        public List<Entity> Entities { get; set; }
+        public List<HammerObject> Entities { get; set; }
         public override string ToString()
         {
             string entityString = "";
@@ -52,12 +52,17 @@ namespace HammerModel.Model
 
         public void AddWorldObject(WorldObject o)
         {
-            World.Solids.AddRange(o.ToWorldObject());
-        }
-
-        public void AddWorldEntity(IWorldEntity e)
-        {
-            Entities.AddRange(e.ToWorldEntity());
+            foreach(HammerObject ho in o.ToHammerObject())
+            {
+                if(ho is Entity)
+                {
+                    Entities.Add(ho);
+                }
+                else
+                {
+                    World.Solids.Add(ho);
+                }
+            }
         }
     }
 }

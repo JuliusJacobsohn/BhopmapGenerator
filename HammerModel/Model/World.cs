@@ -12,7 +12,7 @@ namespace HammerModel.Model
         public string DetailVbsp { get; set; }
         public int MaxPropScreenWidth { get; set; }
         public string SkyName { get; set; }
-        public List<Solid> Solids { get; set; }
+        public List<HammerObject> Solids { get; set; }
         public List<Editor> Groups { get; set; }
         public override string ToString()
         {

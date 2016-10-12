@@ -9,6 +9,6 @@ namespace HammerModel.Model.Structures
 {
     public abstract class WorldObject
     {
-        public abstract List<Solid> ToWorldObject();
+        public abstract List<HammerObject> ToHammerObject();
     }
 }

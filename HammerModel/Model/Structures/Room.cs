@@ -6,10 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HammerModel.Model.Units;
 
 namespace HammerModel.Model.Structures
 {
-    public abstract class Room : TextureObject
+    public abstract class Room : TextureObject, ISpawnable
     {
         public int X { get; set; }
         public int Y { get; set; }
@@ -26,9 +27,9 @@ namespace HammerModel.Model.Structures
 
         }
 
-        public override List<Solid> ToWorldObject()
+        public override List<HammerObject> ToHammerObject()
         {
-            List<Solid> roomList = new List<Solid>();
+            List<HammerObject> entityList = new List<HammerObject>();
             Block floor = new Block
             {
                 X = X,
@@ -39,7 +40,7 @@ namespace HammerModel.Model.Structures
                 Height = StandardValues.WALL_SIZE,
                 Texture = TexturePack.FloorTexture
             };
-            roomList.AddRange(floor.ToWorldObject());
+            entityList.AddRange(floor.ToHammerObject());
             Block ceiling = new Block
             {
                 X = X,
@@ -50,7 +51,7 @@ namespace HammerModel.Model.Structures
                 Height = StandardValues.WALL_SIZE,
                 Texture = TexturePack.CeilingTexture
             };
-            roomList.AddRange(ceiling.ToWorldObject());
+            entityList.AddRange(ceiling.ToHammerObject());
             Wall backWall = new Wall
             {
                 X = X,
@@ -62,7 +63,7 @@ namespace HammerModel.Model.Structures
                 BottomPercentage = StandardValues.BOTTOM_PERECENTAGE,
                 TexturePack = TexturePack
             };
-            roomList.AddRange(backWall.ToWorldObject());
+            entityList.AddRange(backWall.ToHammerObject());
             Wall frontWall = new Wall
             {
                 X = X,
@@ -74,7 +75,7 @@ namespace HammerModel.Model.Structures
                 BottomPercentage = StandardValues.BOTTOM_PERECENTAGE,
                 TexturePack = TexturePack
             };
-            roomList.AddRange(frontWall.ToWorldObject());
+            entityList.AddRange(frontWall.ToHammerObject());
             Wall rightWall = new Wall
             {
                 X = X,
@@ -86,7 +87,7 @@ namespace HammerModel.Model.Structures
                 BottomPercentage = StandardValues.BOTTOM_PERECENTAGE,
                 TexturePack = TexturePack
             };
-            roomList.AddRange(rightWall.ToWorldObject());
+            entityList.AddRange(rightWall.ToHammerObject());
             Wall leftWall = new Wall
             {
                 X = X + Width - StandardValues.WALL_SIZE,
@@ -98,9 +99,24 @@ namespace HammerModel.Model.Structures
                 BottomPercentage = StandardValues.BOTTOM_PERECENTAGE,
                 TexturePack = TexturePack
             };
-            roomList.AddRange(leftWall.ToWorldObject());
+            entityList.AddRange(leftWall.ToHammerObject());
 
-            return roomList;
+            return entityList;
+        }
+
+        public IntTriple GetSpawnCoordinates()
+        {
+            Block floor = new Block
+            {
+                X = X,
+                Y = Y,
+                Z = Z,
+                Width = Width,
+                Breadth = Breadth,
+                Height = StandardValues.WALL_SIZE,
+                Texture = TexturePack.FloorTexture
+            };
+            return floor.GetSpawnCoordinates();
         }
     }
 }

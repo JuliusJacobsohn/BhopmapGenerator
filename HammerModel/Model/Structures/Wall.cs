@@ -19,9 +19,9 @@ namespace HammerModel.Model.Structures
         public int Height { get; set; }
         public double BottomPercentage { get; set; }
 
-        public override List<Solid> ToWorldObject()
+        public override List<HammerObject> ToHammerObject()
         {
-            List<Solid> cubeList = new List<Solid>();
+            List<HammerObject> entityList = new List<HammerObject>();
 
             int bottomHeight = (int)(Height * BottomPercentage);
             int topHeight = Height - bottomHeight;
@@ -47,10 +47,10 @@ namespace HammerModel.Model.Structures
                 Texture = TexturePack.WallTexture.Top
             };
 
-            cubeList.AddRange(bottomCube.ToWorldObject());
-            cubeList.AddRange(topCube.ToWorldObject());
+            entityList.AddRange(bottomCube.ToHammerObject());
+            entityList.AddRange(topCube.ToHammerObject());
 
-            return cubeList;
+            return entityList;
         }
     }
 }

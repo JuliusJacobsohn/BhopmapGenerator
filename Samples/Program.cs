@@ -50,8 +50,8 @@ namespace Samples
                     Y = 50 + i * 100,
                     Z = 10
                 };
-                m.AddWorldEntity(t);
-                m.AddWorldEntity(ct);
+                m.AddWorldObject(t);
+                m.AddWorldObject(ct);
             }
 
             //Create lights over the spawns
@@ -69,8 +69,8 @@ namespace Samples
                     Y = 50 + i * 100,
                     Z = 256
                 };
-                m.AddWorldEntity(tLight);
-                m.AddWorldEntity(ctLight);
+                m.AddWorldObject(tLight);
+                m.AddWorldObject(ctLight);
             }
 
             //Create blocks to protect the spawn area and fill the map

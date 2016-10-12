@@ -1,4 +1,5 @@
 ﻿
+using HammerModel.Model.Structures;
 using HammerModel.Model.Textures;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HammerModel.Model.Entities
 {
-    public class Teleport : IWorldEntity
+    public class Teleport : WorldObject
     {
         public int X { get; set; }
         public int Y { get; set; }
@@ -18,9 +19,9 @@ namespace HammerModel.Model.Entities
         public int Height { get; set; }
         public string Target { get; set; }
 
-        public List<Entity> ToWorldEntity()
+        public override List<HammerObject> ToHammerObject()
         {
-            List<Entity> entityList = new List<Entity>();
+            List<HammerObject> entityList = new List<HammerObject>();
 
             BlockTexture texture = new BlockTexture
             {

@@ -1,4 +1,5 @@
-﻿using HammerModel.Model.Units;
+﻿using HammerModel.Model.Structures;
+using HammerModel.Model.Units;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HammerModel.Model.Entities
 {
-    public class WorldLight : HammerObject, IWorldEntity
+    public class WorldLight : WorldObject
     {
         public int R { get; set; }
         public int G { get; set; }
@@ -17,9 +18,9 @@ namespace HammerModel.Model.Entities
         public int Y { get; set; }
         public int Z { get; set; }
 
-        public List<Entity> ToWorldEntity()
+        public override List<HammerObject> ToHammerObject()
         {
-            List<Entity> entityList = new List<Entity>();
+            List<HammerObject> entityList = new List<HammerObject>();
 
             Light l = new Light
             {

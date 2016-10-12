@@ -1,4 +1,5 @@
-﻿using HammerModel.Model;
+﻿using HammerModel.Helpers;
+using HammerModel.Model;
 using HammerModel.Model.Entities;
 using HammerModel.Model.Structures;
 using HammerModel.Model.Textures;
@@ -18,11 +19,13 @@ namespace BhopmapGenerator
                 X = 0,
                 Y = 0,
                 Z = 0,
-                Width = 1024,
+                Width = 2048,
                 Breadth = 512,
-                Height = 256,
+                Height = 512,
                 TexturePack = TexturePack
             };
+            m.AddWorldObject(r);
+
             SimpleRoom r2 = new SimpleRoom
             {
                 X = 0,
@@ -33,23 +36,21 @@ namespace BhopmapGenerator
                 Height = 256,
                 TexturePack = TexturePack
             };
-            Teleport tp = new Teleport
+            m.AddWorldObject(r2);
+
+            BhopSimple c1 = new BhopSimple
             {
-                X = 0,
-                Y = 0,
-                Z = 0,
-                Width = 100,
-                Breadth = 100,
-                Height = 100,
-                Target = "test_dest_1"
+                X = StandardValues.WALL_SIZE,
+                Y = StandardValues.WALL_SIZE,
+                Z = StandardValues.WALL_SIZE,
+                Width = r.Width - StandardValues.WALL_SIZE * 2,
+                Breadth = r.Breadth - StandardValues.WALL_SIZE * 2,
+                Height = StandardValues.CHALLENGE_HEIGHT,
+                ChallengeID = HONHelper.GetUniqueId(),
+                Difficulty = 1,
+                TexturePack = TexturePack
             };
-            TeleportDestination td = new TeleportDestination
-            {
-                Name = "test_dest_1",
-                X = 128,
-                Y = 712,
-                Z = 20
-            };
+            m.AddWorldObject(c1);
 
             Spawn t = new Spawn
             {
@@ -58,6 +59,8 @@ namespace BhopmapGenerator
                 Y = 110,
                 Z = 110
             };
+            m.AddWorldObject(t);
+
             Spawn ct = new Spawn
             {
                 Terrorist = false,
@@ -65,42 +68,7 @@ namespace BhopmapGenerator
                 Y = 180,
                 Z = 110
             };
-
-            for (int i = 0; i < 10; i++)
-            {
-                WorldLight l = new WorldLight
-                {
-                    X = 110 + i * 100,
-                    Y = 110,
-                    Z = 230,
-                    R = 255,
-                    G = 255,
-                    B = 255,
-                    A = 200,
-                };
-                m.AddWorldEntity(l);
-            }
-
-            m.AddWorldEntity(t);
-            m.AddWorldEntity(ct);
-            m.AddWorldObject(r);
-            m.AddWorldObject(r2);
-            m.AddWorldEntity(tp);
-            m.AddWorldEntity(td);
-
-            //for(int i = 0; i < 50; i++)
-            //{
-            //    Cuboid c = new Cuboid
-            //    {
-            //        X = i * 32,
-            //        Y = i * 32,
-            //        Z = i * 32,
-            //        Width = i * 32,
-            //        Breadth = i * 32,
-            //        Height = i * 32
-            //    };
-            //    m.AddWorldObject(c); //TODO: Fehler mit der ID herausfinden
-            //}
+            m.AddWorldObject(ct);
 
             Console.WriteLine(m.ToString());
             File.WriteAllText(@"F:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\sdk_content\maps\generated.vmf", m.ToString());

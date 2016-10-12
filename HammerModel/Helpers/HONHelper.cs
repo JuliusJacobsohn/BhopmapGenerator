@@ -10,6 +10,8 @@ namespace HammerModel.Helpers
     public class HONHelper
     {
         public static int IdCounter = 0;
+        private static readonly Random random = new Random();
+        private static readonly object syncLock = new object();
         public static int GetUniqueId()
         {
             int returnId = IdCounter;
@@ -17,6 +19,20 @@ namespace HammerModel.Helpers
 
             return returnId;
         }
+
+        public static string GetTeleportName(int id)
+        {
+            return "teleport_destination_" + id;
+        }
+
+        public static int GetRandomNumber(int min, int max)
+        {
+            lock (syncLock)
+            { // synchronize
+                return random.Next(min, max);
+            }
+        }
+
         public static string GetKeyValuePair(string key, object value)
         {
             if (value.GetType() == typeof(double))
