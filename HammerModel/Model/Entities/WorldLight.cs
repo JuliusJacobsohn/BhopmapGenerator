@@ -14,9 +14,9 @@ namespace HammerModel.Model.Entities
         public int G { get; set; }
         public int B { get; set; }
         public int A { get; set; }
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int Z { get; set; }
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Z { get; set; }
 
         public override List<HammerObject> ToHammerObject()
         {

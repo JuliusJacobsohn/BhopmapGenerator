@@ -11,9 +11,9 @@ namespace HammerModel.Model
 {
     public class Solid : HammerObject
     {
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int Z { get; set; }
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Z { get; set; }
         public Side Side1 { get; set; }
         public Side Side2 { get; set; }
         public Side Side3 { get; set; }
@@ -22,7 +22,7 @@ namespace HammerModel.Model
         public Side Side6 { get; set; }
         public Editor Editor { get; set; }
 
-        public Solid(int x, int y, int z, int width, int breadth, int height, BlockTexture textureInfo = null)
+        public Solid(double x, double y, double z, double width, double breadth, double height, BlockTexture textureInfo = null)
         {
             if(textureInfo == null)
             {

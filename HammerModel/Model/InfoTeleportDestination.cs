@@ -17,14 +17,14 @@ namespace HammerModel.Model
                 return "info_teleport_destination";
             }
         }
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int Z { get; set; }
-        public IntTriple Origin
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Z { get; set; }
+        public ValueTriple Origin
         {
             get
             {
-                return new IntTriple
+                return new ValueTriple
                 {
                     X = X,
                     Y = Y,
@@ -32,7 +32,7 @@ namespace HammerModel.Model
                 };
             }
         }
-        public IntTriple Angles = new IntTriple { X = 0, Y = 0, Z = 0 };
+        public ValueTriple Angles = new ValueTriple { X = 0, Y = 0, Z = 0 };
         public string TargetName { get; set; }
 
         public override string ToString()

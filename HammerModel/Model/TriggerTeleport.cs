@@ -17,17 +17,17 @@ namespace HammerModel.Model
                 return "trigger_teleport";
             }
         }
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int Z { get; set; }
-        public int Width { get; set; }
-        public int Breadth { get; set; }
-        public int Height { get; set; }
-        public IntTriple Origin
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Z { get; set; }
+        public double Width { get; set; }
+        public double Breadth { get; set; }
+        public double Height { get; set; }
+        public ValueTriple Origin
         {
             get
             {
-                return new IntTriple
+                return new ValueTriple
                 {
                     X = X + (Width / 2),
                     Y = Y + (Breadth / 2),

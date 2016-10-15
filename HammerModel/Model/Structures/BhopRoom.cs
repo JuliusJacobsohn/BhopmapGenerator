@@ -14,7 +14,7 @@ namespace HammerModel.Model.Structures
         private Block Start;
         private Block End;
         private List<Tuple<BhopChallenge, double>> Challenges;
-        public BhopRoom(int x, int y, int z, int width, int breadth, int height, TexturePack texturePack) : base()
+        public BhopRoom(double x, double y, double z, double width, double breadth, double height, TexturePack texturePack) : base()
         {
             Challenges = new List<Tuple<BhopChallenge, double>>();
             X = x;
@@ -42,12 +42,12 @@ namespace HammerModel.Model.Structures
             Challenges.Add(new Tuple<BhopChallenge, double>(challenge, percentageOfRoom));
         }
 
-        public IntTriple GetStartLocation()
+        public ValueTriple GetStartLocation()
         {
-            int x = Start.X + Start.Width / 2 - StandardValues.PLAYER_ENTITY_SIZE / 2;
-            int y = Start.Y + Start.Breadth / 2 - StandardValues.PLAYER_ENTITY_SIZE / 2;
-            int z = Start.Z;
-            return new IntTriple
+            double x = Start.X + Start.Width / 2 - StandardValues.PLAYER_ENTITY_SIZE / 2;
+            double y = Start.Y + Start.Breadth / 2 - StandardValues.PLAYER_ENTITY_SIZE / 2;
+            double z = Start.Z;
+            return new ValueTriple
             {
                 X = x,
                 Y = y,
@@ -72,10 +72,10 @@ namespace HammerModel.Model.Structures
             };
             objectList.AddRange(Start.ToHammerObject());
 
-            int oldX = Start.Width;
+            double oldX = Start.Width;
 
-            int dWidth = Width - (StandardValues.WALL_SIZE * 2) - (StandardValues.CHALLENGE_START_WIDTH * 2);
-            int tWidth = 0;
+            double dWidth = Width - (StandardValues.WALL_SIZE * 2) - (StandardValues.CHALLENGE_START_WIDTH * 2);
+            double tWidth = 0;
 
             foreach (var tuple in Challenges)
             {

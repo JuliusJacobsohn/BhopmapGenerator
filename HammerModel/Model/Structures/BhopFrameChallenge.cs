@@ -13,7 +13,7 @@ namespace HammerModel.Model.Structures
         {
             List<HammerObject> entityList = base.ToHammerObject();
 
-            for (int i = X + Start.Width + 128; i < X + Width - End.Width; i += 128)
+            for (double i = X + Start.Width + 128; i < X + Width - End.Width; i += 128)
             {
                 if (i % 3 == 0)
                 {

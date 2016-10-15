@@ -7,7 +7,7 @@ namespace HammerModel.Model
 {
     public class Editor// : IDefaultable<Editor>
     {
-        public IntTriple Color { get; set; }
+        public ValueTriple Color { get; set; }
         public int VisGroupShown { get; set; }
         public int VisGroupAutoShown { get; set; }
         public override string ToString()
@@ -22,7 +22,7 @@ namespace HammerModel.Model
         {
             return new Editor
             {
-                Color = new IntTriple
+                Color = new ValueTriple
                 {
                     X = 0,
                     Y = 246,

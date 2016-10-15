@@ -11,20 +11,20 @@ namespace HammerModel.Model.Structures
 {
     public class Wall : TextureObject
     {
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int Z { get; set; }
-        public int Width { get; set; }
-        public int Breadth { get; set; }
-        public int Height { get; set; }
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Z { get; set; }
+        public double Width { get; set; }
+        public double Breadth { get; set; }
+        public double Height { get; set; }
         public double BottomPercentage { get; set; }
 
         public override List<HammerObject> ToHammerObject()
         {
             List<HammerObject> entityList = new List<HammerObject>();
 
-            int bottomHeight = (int)(Height * BottomPercentage);
-            int topHeight = Height - bottomHeight;
+            double bottomHeight = (int)(Height * BottomPercentage);
+            double topHeight = Height - bottomHeight;
 
             Block bottomCube = new Block
             {

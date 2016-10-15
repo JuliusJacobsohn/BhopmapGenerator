@@ -12,12 +12,12 @@ namespace HammerModel.Model.Structures
 {
     public abstract class Room : TextureObject, ISpawnable
     {
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int Z { get; set; }
-        public int Width { get; set; }
-        public int Breadth { get; set; }
-        public int Height { get; set; }
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Z { get; set; }
+        public double Width { get; set; }
+        public double Breadth { get; set; }
+        public double Height { get; set; }
 
         /// <summary>
         /// Protected ctor to let child classes choose wether they can be initialized with an instanciator or not
@@ -104,7 +104,7 @@ namespace HammerModel.Model.Structures
             return entityList;
         }
 
-        public IntTriple GetSpawnCoordinates()
+        public ValueTriple GetSpawnCoordinates()
         {
             Block floor = new Block
             {

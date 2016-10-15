@@ -10,9 +10,9 @@ namespace HammerModel.Model.Entities
 {
     public class Spawn : WorldObject
     {
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int Z { get; set; }
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Z { get; set; }
         public bool Terrorist { get; set; }
 
         public override List<HammerObject> ToHammerObject()

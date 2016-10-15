@@ -11,12 +11,12 @@ namespace HammerModel.Model.Structures
     public abstract class BhopChallenge : TextureObject
     {
         public int ChallengeID { get; set; }
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int Z { get; set; }
-        public int Width { get; set; }
-        public int Breadth { get; set; }
-        public int Height { get; set; }
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Z { get; set; }
+        public double Width { get; set; }
+        public double Breadth { get; set; }
+        public double Height { get; set; }
         protected Block Start { get; set; }
         protected Block End { get; set; }
         protected Teleport FailTeleport { get; set; }

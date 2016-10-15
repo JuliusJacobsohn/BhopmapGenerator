@@ -99,7 +99,7 @@ namespace BhopmapGenerator
             r.AddChallenge(c31, 0.05);
             r.AddChallenge(c32, 0.05);
             r.AddChallenge(c33, 0.07);
-            r.AddChallenge(c34, 0.08);
+            r.AddChallenge(c34, 0.08 );
 
             m.AddWorldObject(r);
 

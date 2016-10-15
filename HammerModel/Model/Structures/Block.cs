@@ -12,12 +12,12 @@ namespace HammerModel.Model.Structures
 {
     public class Block : WorldObject, ISpawnable
     {
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int Z { get; set; }
-        public int Width { get; set; }
-        public int Breadth { get; set; }
-        public int Height { get; set; }
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Z { get; set; }
+        public double Width { get; set; }
+        public double Breadth { get; set; }
+        public double Height { get; set; }
         public BlockTexture Texture { get; set; }
 
         public override List<HammerObject> ToHammerObject()
@@ -29,9 +29,9 @@ namespace HammerModel.Model.Structures
             return entityList;
         }
 
-        public IntTriple GetSpawnCoordinates()
+        public ValueTriple GetSpawnCoordinates()
         {
-            return new IntTriple
+            return new ValueTriple
             {
                 X = X + Width / 2 - StandardValues.PLAYER_ENTITY_SIZE / 2,
                 Y = Y + Breadth / 2 - StandardValues.PLAYER_ENTITY_SIZE / 2,
