@@ -70,7 +70,6 @@ namespace HammerModel.Model.Structures
                 Height = StandardValues.CHALLENGE_HEIGHT,
                 Texture = TexturePack.FloorTexture
             };
-            objectList.AddRange(Start.ToHammerObject());
 
             double oldX = Start.Width;
 
@@ -96,6 +95,8 @@ namespace HammerModel.Model.Structures
                 {
                     challenge.Width = challenge.Width + (dWidth - tWidth);
                 }
+
+                challenge.AddRotationTask(Rotations);
                 objectList.AddRange(challenge.ToHammerObject());
             }
 
@@ -110,6 +111,11 @@ namespace HammerModel.Model.Structures
                 Height = StandardValues.CHALLENGE_HEIGHT,
                 Texture = TexturePack.FloorTexture
             };
+
+            Start.AddRotationTask(Rotations);
+            End.AddRotationTask(Rotations);
+
+            objectList.AddRange(Start.ToHammerObject());
             objectList.AddRange(End.ToHammerObject());
 
             return objectList;

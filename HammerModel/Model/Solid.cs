@@ -24,7 +24,7 @@ namespace HammerModel.Model
 
         public Solid(double x, double y, double z, double width, double breadth, double height, BlockTexture textureInfo = null)
         {
-            if(textureInfo == null)
+            if (textureInfo == null)
             {
                 textureInfo = BlockTexture.GetDefault();
             }
@@ -45,7 +45,8 @@ namespace HammerModel.Model
                     Z2 = z + height,
                     X3 = x + width,
                     Y3 = y + breadth,
-                    Z3 = z + height
+                    Z3 = z + height,
+                    Rotations = Rotations
                 },
                 Material = textureInfo.TopTexture,
                 UAxis = new Axis
@@ -54,7 +55,8 @@ namespace HammerModel.Model
                     Y = 0,
                     Z = 0,
                     Translation = 0,
-                    Factor = 0.25
+                    Factor = 0.25,
+                    Rotations = Rotations
                 },
                 VAxis = new Axis
                 {
@@ -62,7 +64,8 @@ namespace HammerModel.Model
                     Y = -1,
                     Z = 0,
                     Translation = 0,
-                    Factor = 0.25
+                    Factor = 0.25,
+                    Rotations = Rotations
                 },
                 Rotation = 0,
                 LightMapScale = 16,
@@ -81,6 +84,7 @@ namespace HammerModel.Model
                     X3 = x + width,
                     Y3 = y,// + size,
                     Z3 = z,// + size,
+                    Rotations = Rotations
                 },
                 Material = textureInfo.TopTexture,
                 UAxis = new Axis
@@ -89,7 +93,8 @@ namespace HammerModel.Model
                     Y = 0,
                     Z = 0,
                     Translation = 0,
-                    Factor = 0.25
+                    Factor = 0.25,
+                    Rotations = Rotations
                 },
                 VAxis = new Axis
                 {
@@ -97,7 +102,8 @@ namespace HammerModel.Model
                     Y = -1,
                     Z = 0,
                     Translation = 0,
-                    Factor = 0.25
+                    Factor = 0.25,
+                    Rotations = Rotations
                 },
                 Rotation = 0,
                 LightMapScale = 16,
@@ -116,6 +122,7 @@ namespace HammerModel.Model
                     X3 = x,// + size,
                     Y3 = y + breadth,
                     Z3 = z + height,
+                    Rotations = Rotations
                 },
                 Material = textureInfo.DefaultTexture,
                 UAxis = new Axis
@@ -124,7 +131,8 @@ namespace HammerModel.Model
                     Y = 1,
                     Z = 0,
                     Translation = 0,
-                    Factor = 0.25
+                    Factor = 0.25,
+                    Rotations = Rotations
                 },
                 VAxis = new Axis
                 {
@@ -132,7 +140,8 @@ namespace HammerModel.Model
                     Y = 0,
                     Z = -1,
                     Translation = 0,
-                    Factor = 0.25
+                    Factor = 0.25,
+                    Rotations = Rotations
                 },
                 Rotation = 0,
                 LightMapScale = 16,
@@ -151,6 +160,7 @@ namespace HammerModel.Model
                     X3 = x + width,
                     Y3 = y,// + size,
                     Z3 = z + height,
+                    Rotations = Rotations
                 },
                 Material = textureInfo.DefaultTexture,
                 UAxis = new Axis
@@ -159,7 +169,8 @@ namespace HammerModel.Model
                     Y = 1,
                     Z = 0,
                     Translation = 0,
-                    Factor = 0.25
+                    Factor = 0.25,
+                    Rotations = Rotations
                 },
                 VAxis = new Axis
                 {
@@ -167,7 +178,8 @@ namespace HammerModel.Model
                     Y = 0,
                     Z = -1,
                     Translation = 0,
-                    Factor = 0.25
+                    Factor = 0.25,
+                    Rotations = Rotations
                 },
                 Rotation = 0,
                 LightMapScale = 16,
@@ -186,6 +198,7 @@ namespace HammerModel.Model
                     X3 = x + width,
                     Y3 = y + breadth,
                     Z3 = z + height,
+                    Rotations = Rotations
                 },
                 Material = textureInfo.DefaultTexture,
                 UAxis = new Axis
@@ -194,7 +207,8 @@ namespace HammerModel.Model
                     Y = 0,
                     Z = 0,
                     Translation = 0,
-                    Factor = 0.25
+                    Factor = 0.25,
+                    Rotations = Rotations
                 },
                 VAxis = new Axis
                 {
@@ -202,7 +216,8 @@ namespace HammerModel.Model
                     Y = 0,
                     Z = -1,
                     Translation = 0,
-                    Factor = 0.25
+                    Factor = 0.25,
+                    Rotations = Rotations
                 },
                 Rotation = 0,
                 LightMapScale = 16,
@@ -221,6 +236,7 @@ namespace HammerModel.Model
                     X3 = x,// + size,
                     Y3 = y,// + size,
                     Z3 = z + height,
+                    Rotations = Rotations
                 },
                 Material = textureInfo.DefaultTexture,
                 UAxis = new Axis
@@ -229,7 +245,8 @@ namespace HammerModel.Model
                     Y = 0,
                     Z = 0,
                     Translation = 0,
-                    Factor = 0.25
+                    Factor = 0.25,
+                    Rotations = Rotations
                 },
                 VAxis = new Axis
                 {
@@ -237,13 +254,15 @@ namespace HammerModel.Model
                     Y = 0,
                     Z = -1,
                     Translation = 0,
-                    Factor = 0.25
+                    Factor = 0.25,
+                    Rotations = Rotations
                 },
                 Rotation = 0,
                 LightMapScale = 16,
                 Smoothing_Groups = 0
             };
         }
+
         public override string ToString()
         {
             return HONHelper.GetHonObjectBody("solid",

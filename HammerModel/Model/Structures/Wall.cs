@@ -1,6 +1,7 @@
 ﻿using HammerModel.Model;
 
 using HammerModel.Model.Structures;
+using HammerModel.Model.Units;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,10 +48,23 @@ namespace HammerModel.Model.Structures
                 Texture = TexturePack.WallTexture.Top
             };
 
+            bottomCube.AddRotationTask(Rotations);
+            topCube.AddRotationTask(Rotations);
+
             entityList.AddRange(bottomCube.ToHammerObject());
             entityList.AddRange(topCube.ToHammerObject());
 
             return entityList;
+        }
+
+        public override ValueTriple GetOrigin()
+        {
+            return new ValueTriple
+            {
+                X = X + Width / 2,
+                Y = Y + Breadth / 2,
+                Z = Z + Height / 2
+            };
         }
     }
 }

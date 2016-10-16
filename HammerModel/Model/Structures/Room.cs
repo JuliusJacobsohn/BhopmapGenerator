@@ -40,7 +40,6 @@ namespace HammerModel.Model.Structures
                 Height = StandardValues.WALL_SIZE,
                 Texture = TexturePack.FloorTexture
             };
-            entityList.AddRange(floor.ToHammerObject());
             Block ceiling = new Block
             {
                 X = X,
@@ -51,7 +50,6 @@ namespace HammerModel.Model.Structures
                 Height = StandardValues.WALL_SIZE,
                 Texture = TexturePack.CeilingTexture
             };
-            entityList.AddRange(ceiling.ToHammerObject());
             Wall backWall = new Wall
             {
                 X = X,
@@ -63,7 +61,6 @@ namespace HammerModel.Model.Structures
                 BottomPercentage = StandardValues.BOTTOM_PERECENTAGE,
                 TexturePack = TexturePack
             };
-            entityList.AddRange(backWall.ToHammerObject());
             Wall frontWall = new Wall
             {
                 X = X,
@@ -75,7 +72,6 @@ namespace HammerModel.Model.Structures
                 BottomPercentage = StandardValues.BOTTOM_PERECENTAGE,
                 TexturePack = TexturePack
             };
-            entityList.AddRange(frontWall.ToHammerObject());
             Wall rightWall = new Wall
             {
                 X = X,
@@ -87,7 +83,6 @@ namespace HammerModel.Model.Structures
                 BottomPercentage = StandardValues.BOTTOM_PERECENTAGE,
                 TexturePack = TexturePack
             };
-            entityList.AddRange(rightWall.ToHammerObject());
             Wall leftWall = new Wall
             {
                 X = X + Width - StandardValues.WALL_SIZE,
@@ -99,9 +94,32 @@ namespace HammerModel.Model.Structures
                 BottomPercentage = StandardValues.BOTTOM_PERECENTAGE,
                 TexturePack = TexturePack
             };
+
+            floor.AddRotationTask(Rotations);
+            ceiling.AddRotationTask(Rotations);
+            backWall.AddRotationTask(Rotations);
+            frontWall.AddRotationTask(Rotations);
+            rightWall.AddRotationTask(Rotations);
+            leftWall.AddRotationTask(Rotations);
+
+            entityList.AddRange(floor.ToHammerObject());
+            entityList.AddRange(ceiling.ToHammerObject());
+            entityList.AddRange(backWall.ToHammerObject());
+            entityList.AddRange(frontWall.ToHammerObject());
+            entityList.AddRange(rightWall.ToHammerObject());
             entityList.AddRange(leftWall.ToHammerObject());
 
             return entityList;
+        }
+
+        public override ValueTriple GetOrigin()
+        {
+            return new ValueTriple
+            {
+                X = X + Width / 2,
+                Y = Y + Breadth / 2,
+                Z = Z + Height / 2
+            };
         }
 
         public ValueTriple GetSpawnCoordinates()

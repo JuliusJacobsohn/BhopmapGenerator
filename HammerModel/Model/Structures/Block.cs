@@ -24,8 +24,9 @@ namespace HammerModel.Model.Structures
         {
             List<HammerObject> entityList = new List<HammerObject>();
 
-            entityList.Add(new Solid(X, Y, Z, Width, Breadth, Height, Texture));
-
+            Solid s = new Solid(X, Y, Z, Width, Breadth, Height, Texture);
+            s.AddRotationTask(Rotations);
+            entityList.Add(s);
             return entityList;
         }
 
@@ -36,6 +37,16 @@ namespace HammerModel.Model.Structures
                 X = X + Width / 2 - StandardValues.PLAYER_ENTITY_SIZE / 2,
                 Y = Y + Breadth / 2 - StandardValues.PLAYER_ENTITY_SIZE / 2,
                 Z = Z + Height
+            };
+        }
+
+        public override ValueTriple GetOrigin()
+        {
+            return new ValueTriple
+            {
+                X = X + Width / 2,
+                Y = Y + Breadth / 2,
+                Z = Z + Height / 2
             };
         }
     }

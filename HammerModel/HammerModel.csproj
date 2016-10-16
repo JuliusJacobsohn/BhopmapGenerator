@@ -56,6 +56,7 @@
     <Compile Include="Model\Entity.cs" />
     <Compile Include="Helpers\HONHelper.cs" />
     <Compile Include="Model\InfoPlayerSpawn.cs" />
+    <Compile Include="Model\Units\RotationTask.cs" />
     <Compile Include="Model\Units\ValueTriple.cs" />
     <Compile Include="Model\Light.cs" />
     <Compile Include="Model\Map.cs" />

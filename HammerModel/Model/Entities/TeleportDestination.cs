@@ -1,4 +1,6 @@
-﻿using HammerModel.Model.Structures;
+﻿using HammerModel.Helpers;
+using HammerModel.Model.Structures;
+using HammerModel.Model.Units;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,9 +28,20 @@ namespace HammerModel.Model.Entities
                 TargetName = Name,
                 Editor = Editor.GetDefault()
             };
+            ips.AddRotationTask(Rotations);
             entityList.Add(ips);
 
             return entityList;
+        }
+
+        public override ValueTriple GetOrigin()
+        {
+            return new ValueTriple
+            {
+                X = X + StandardValues.PLAYER_ENTITY_SIZE / 2,
+                Y = Y + StandardValues.PLAYER_ENTITY_SIZE / 2,
+                Z = Z
+            };
         }
     }
 }

@@ -27,6 +27,8 @@ namespace HammerModel.Model.Structures
                         Height = StandardValues.BHOP_OBSTACLE_HEIGHT,
                         Texture = TexturePack.AlternativeTexture
                     };
+
+                    blockBlock.AddRotationTask(Rotations);
                     entityList.AddRange(blockBlock.ToHammerObject());
                 }
                 else
@@ -41,6 +43,8 @@ namespace HammerModel.Model.Structures
                         Height = StandardValues.BHOP_BLOCK_HEIGHT,
                         Texture = TexturePack.StandardTexture
                     };
+
+                    currentBlock.AddRotationTask(Rotations);
                     entityList.AddRange(currentBlock.ToHammerObject());
                 }
             }

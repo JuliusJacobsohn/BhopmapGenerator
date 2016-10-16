@@ -36,9 +36,20 @@ namespace HammerModel.Model.Entities
                 },
                 Editor = Editor.GetDefault()
             };
+            l.AddRotationTask(Rotations);
             entityList.Add(l);
 
             return entityList;
+        }
+
+        public override ValueTriple GetOrigin()
+        {
+            return new ValueTriple
+            {
+                X = X,
+                Y = Y,
+                Z = Z
+            };
         }
     }
 }

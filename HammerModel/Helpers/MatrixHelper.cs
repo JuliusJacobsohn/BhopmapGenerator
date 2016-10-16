@@ -9,15 +9,28 @@ namespace HammerModel.Helpers
 {
     public class MatrixHelper
     {
-        public static void RotateZ(ValueTriple point, ValueTriple origin = null)
+        public static ValueTriple Rotate(ValueTriple point, RotationTask task)
         {
-            if (origin != null)
+            if (task.Origin != null)
             {
-
+                ValueTriple transformedPoint = new ValueTriple
+                {
+                    X = point.X - task.Origin.X,
+                    Y = point.Y - task.Origin.Y,
+                    Z = point.Z - task.Origin.Z
+                };
+                ValueTriple rotatedPoint = Matrix3D.VectorMult(Matrix3D.GetZRotationMatrix(task.Degree), transformedPoint);
+                return new ValueTriple
+                {
+                    X = rotatedPoint.X + task.Origin.X,
+                    Y = rotatedPoint.Y + task.Origin.Y,
+                    Z = rotatedPoint.Z + task.Origin.Z
+                };
             }
             else
             {
-
+                string test = Matrix3D.GetZRotationMatrix(task.Degree).ToString();
+                return Matrix3D.VectorMult(Matrix3D.GetZRotationMatrix(task.Degree), point);
             }
         }
 
@@ -32,6 +45,14 @@ namespace HammerModel.Helpers
             public double c31 { get; set; }
             public double c32 { get; set; }
             public double c33 { get; set; }
+
+            public override string ToString()
+            {
+                return "Matrix{" + c11 + ", " + c12 + ", " + c13 + "\n" +
+                     c21 + ", " + c22 + ", " + c23 + "\n" +
+                     c31 + ", " + c32 + ", " + c33 + "}";
+            }
+
             public static Matrix3D GetZRotationMatrix(double theta)
             {
                 return new Matrix3D
@@ -48,13 +69,24 @@ namespace HammerModel.Helpers
                 };
             }
 
+            public static ValueTriple VectorMult(Matrix3D matrix, ValueTriple vector)
+            {
+                return new ValueTriple
+                {
+                    X = matrix.c11 * vector.X + matrix.c12 * vector.Y + matrix.c13 * vector.Z,
+                    Y = matrix.c21 * vector.X + matrix.c22 * vector.Y + matrix.c23 * vector.Z,
+                    Z = matrix.c31 * vector.X + matrix.c32 * vector.Y + matrix.c33 * vector.Z
+                };
+            }
+
             public static double CosDeg(double theta)
             {
-                return Math.Cos(theta * (180.0 / Math.PI));
+                double val = Math.Cos(Math.PI * theta / 180.0);
+                return val;
             }
             public static double SinDeg(double theta)
             {
-                return Math.Sin(theta * (180.0 / Math.PI));
+                return Math.Sin(Math.PI * theta / 180.0);
             }
         }
     }

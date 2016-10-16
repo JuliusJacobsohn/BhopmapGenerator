@@ -25,6 +25,9 @@ namespace HammerModel.Model.Structures
                     Height = StandardValues.BHOP_BLOCK_HEIGHT,
                     Texture = TexturePack.StandardTexture
                 };
+
+                currentBlock.AddRotationTask(Rotations);
+
                 entityList.AddRange(currentBlock.ToHammerObject());
             }
 

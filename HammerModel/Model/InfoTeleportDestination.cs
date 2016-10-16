@@ -24,15 +24,20 @@ namespace HammerModel.Model
         {
             get
             {
-                return new ValueTriple
+                ValueTriple v = new ValueTriple
                 {
                     X = X,
                     Y = Y,
                     Z = Z
                 };
+                foreach(var task in Rotations)
+                {
+                    v = MatrixHelper.Rotate(v, task);
+                }
+                return v;
             }
         }
-        public ValueTriple Angles = new ValueTriple { X = 0, Y = 0, Z = 0 };
+        public ValueTriple Angles = new ValueTriple { X = 0, Y = 0, Z = 0 }; //TODO: turn angles as well
         public string TargetName { get; set; }
 
         public override string ToString()

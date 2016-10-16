@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HammerModel.Model;
+using HammerModel.Model.Units;
+using HammerModel.Helpers;
 
 namespace HammerModel.Model.Entities
 {
@@ -27,9 +29,22 @@ namespace HammerModel.Model.Entities
                 Terrorist = Terrorist,
                 Editor = Editor.GetDefault()
             };
+
+            ips.AddRotationTask(Rotations);
+
             entityList.Add(ips);
 
             return entityList;
+        }
+
+        public override ValueTriple GetOrigin()
+        {
+            return new ValueTriple
+            {
+                X = X + StandardValues.PLAYER_ENTITY_SIZE / 2,
+                Y = Y + StandardValues.PLAYER_ENTITY_SIZE / 2,
+                Z = Z
+            };
         }
     }
 }

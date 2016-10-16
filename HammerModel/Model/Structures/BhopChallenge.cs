@@ -1,5 +1,6 @@
 ﻿using HammerModel.Helpers;
 using HammerModel.Model.Entities;
+using HammerModel.Model.Units;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +37,6 @@ namespace HammerModel.Model.Structures
                 Height = StandardValues.CHALLENGE_HEIGHT,
                 Texture = TexturePack.FloorTexture
             };
-            entityList.AddRange(Start.ToHammerObject());
             End = new Block
             {
                 X = X + Width - Start.Width,
@@ -47,7 +47,6 @@ namespace HammerModel.Model.Structures
                 Height = StandardValues.CHALLENGE_HEIGHT,
                 Texture = TexturePack.FloorTexture
             };
-            entityList.AddRange(End.ToHammerObject());
             FailTeleport = new Teleport
             {
                 X = X + Start.Width,
@@ -58,7 +57,6 @@ namespace HammerModel.Model.Structures
                 Height = Height - StandardValues.CHALLENGE_FAIL_HEIGHT,
                 Target = HONHelper.GetTeleportName(ChallengeID)
             };
-            entityList.AddRange(FailTeleport.ToHammerObject());
             var tpDest = Start.GetSpawnCoordinates();
             FailTeleportDestination = new TeleportDestination
             {
@@ -67,9 +65,28 @@ namespace HammerModel.Model.Structures
                 Y = tpDest.Y,
                 Z = tpDest.Z
             };
+
+            Start.AddRotationTask(Rotations);
+            End.AddRotationTask(Rotations);
+            FailTeleport.AddRotationTask(Rotations);
+            FailTeleportDestination.AddRotationTask(Rotations);
+
+            entityList.AddRange(Start.ToHammerObject());
+            entityList.AddRange(End.ToHammerObject());
+            entityList.AddRange(FailTeleport.ToHammerObject());
             entityList.AddRange(FailTeleportDestination.ToHammerObject());
 
             return entityList;
+        }
+
+        public override ValueTriple GetOrigin()
+        {
+            return new ValueTriple
+            {
+                X = X + Width / 2,
+                Y = Y + Breadth / 2,
+                Z = Z + Height / 2
+            };
         }
     }
 }
