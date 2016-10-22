@@ -1,4 +1,7 @@
-﻿using System;
+﻿using HammerModel.Model;
+using HammerModel.Model.Structures;
+using HammerModel.Model.Units;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -52,6 +55,17 @@ namespace HammerModel.Helpers
             }
             return name + "\n" +
                 "{\n" + contentString + "}";
+        }
+
+        public static List<HammerObject> ToHammerObject(List<RotationTask> rotations, params WorldObject[] objects)
+        {
+            List<HammerObject> objectList = new List<HammerObject>();
+            foreach (var obj in objects)
+            {
+                obj.AddRotationTask(rotations);
+                objectList.AddRange(obj.ToHammerObject());
+            }
+            return objectList;
         }
     }
 }
