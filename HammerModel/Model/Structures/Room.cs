@@ -29,7 +29,7 @@ namespace HammerModel.Model.Structures
 
         public override List<HammerObject> ToHammerObject()
         {
-            List<HammerObject> entityList = new List<HammerObject>();
+            List<HammerObject> objectList = new List<HammerObject>();
             Block floor = new Block
             {
                 X = X,
@@ -95,21 +95,13 @@ namespace HammerModel.Model.Structures
                 TexturePack = TexturePack
             };
 
-            floor.AddRotationTask(Rotations);
-            ceiling.AddRotationTask(Rotations);
-            backWall.AddRotationTask(Rotations);
-            frontWall.AddRotationTask(Rotations);
-            rightWall.AddRotationTask(Rotations);
-            leftWall.AddRotationTask(Rotations);
-
-            entityList.AddRange(floor.ToHammerObject());
-            entityList.AddRange(ceiling.ToHammerObject());
-            entityList.AddRange(backWall.ToHammerObject());
-            entityList.AddRange(frontWall.ToHammerObject());
-            entityList.AddRange(rightWall.ToHammerObject());
-            entityList.AddRange(leftWall.ToHammerObject());
-
-            return entityList;
+            return HONHelper.ToHammerObject(Rotations,
+                floor,
+                ceiling,
+                backWall,
+                frontWall,
+                rightWall,
+                leftWall);
         }
 
         public override ValueTriple GetOrigin()
