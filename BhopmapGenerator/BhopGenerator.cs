@@ -95,6 +95,7 @@ namespace BhopmapGenerator
             r.AddChallenge(c14, 0.08);
             r.AddChallenge(c21, 0.05);
             r.AddChallenge(c22, 0.05);
+
             r.AddChallenge(c23, 0.07);
             r.AddChallenge(c24, 0.08);
             r.AddChallenge(c31, 0.05);
@@ -102,7 +103,11 @@ namespace BhopmapGenerator
             r.AddChallenge(c33, 0.07);
             r.AddChallenge(c34, 0.08);
 
-            //m.AddWorldObject(r);
+            m.AddWorldObject(r);
+
+            BhopRoom r2 = new BhopRoom(0, 800, 0, 1028, 512, 512, TexturePack);
+            r2.AddRotationTask(RotationType.Z, 10);
+            m.AddWorldObject(r2);
 
             Spawn t = new Spawn
             {
@@ -111,7 +116,7 @@ namespace BhopmapGenerator
                 Y = 110,
                 Z = 110
             };
-            //m.AddWorldObject(t);
+            m.AddWorldObject(t);
 
             Spawn ct = new Spawn
             {
@@ -120,41 +125,7 @@ namespace BhopmapGenerator
                 Y = 180,
                 Z = 110
             };
-            //m.AddWorldObject(ct);
-
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    Block b = new Block
-            //    {
-            //        X = 256,
-            //        Y = 256,
-            //        Z = -128 + i * 256,
-            //        Width = 256,
-            //        Breadth = 256,
-            //        Height = 256,
-            //        Texture = TexturePack.StandardTexture
-            //    };
-            //    b.AddRotationTask(RotationType.Z, i*10, new ValueTriple { X = b.X + b.Width / 2, Y = b.Y + b.Breadth / 2, Z = b.Z + b.Height / 2 });
-            //    m.AddWorldObject(b);
-            //}
-
-            BhopRoom room = new BhopRoom(0, 0, 0, 1028, 512, 512, TexturePack);
-            BhopRoom room2 = new BhopRoom(1028, 0, 0, 1028, 512, 512, TexturePack);
-
-            BhopSimpleChallenge challenge = new BhopSimpleChallenge
-            {
-                ChallengeID = HONHelper.GetUniqueId(),
-                Difficulty = 1,
-                TexturePack = TexturePack
-            };
-
-            room.AddChallenge(challenge, 1);
-            room2.AddChallenge(challenge, 1);
-            room2.AddRotationTask(RotationType.Z, 45, new ValueTriple { X = 1028, Y = 512, Z = 0 });
-
-            m.AddWorldObject(room);
-            m.AddWorldObject(room2);
-
+            m.AddWorldObject(ct);
 
 
             Console.WriteLine(m.ToString());
