@@ -107,6 +107,18 @@ namespace BhopmapGenerator
 
             BhopRoom r2 = new BhopRoom(0, 800, 0, 1028, 512, 512, TexturePack);
             r2.AddRotationTask(RotationType.Z, 10);
+            Portal p = new Portal
+            {
+                X = 480,
+                Y = 120,
+                Z = 0,
+                Width = 16,
+                Breadth = 128,
+                Height = 192,
+                Destination = "testtt",
+                TexturePack = TexturePack
+            };
+            m.AddWorldObject(p);
             m.AddWorldObject(r2);
 
             Spawn t = new Spawn
