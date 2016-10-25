@@ -10,7 +10,7 @@ using HammerModel.Helpers;
 
 namespace HammerModel.Model.Structures
 {
-    public class Block : WorldObject, ISpawnable
+    public class Block : WorldObject, ISpawnable, IEndable
     {
         public double X { get; set; }
         public double Y { get; set; }
@@ -47,6 +47,16 @@ namespace HammerModel.Model.Structures
                 X = X + Width / 2,
                 Y = Y + Breadth / 2,
                 Z = Z + Height / 2
+            };
+        }
+
+        public ValueTriple GetEndCoordinates(Portal portal)
+        {
+            return new ValueTriple
+            {
+                X = X + Width - portal.Width,
+                Y = Y + (Width / 2) - (portal.Width / 2),
+                Z = Z + Height
             };
         }
     }

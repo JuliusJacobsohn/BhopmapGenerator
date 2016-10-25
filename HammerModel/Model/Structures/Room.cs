@@ -10,7 +10,7 @@ using HammerModel.Model.Units;
 
 namespace HammerModel.Model.Structures
 {
-    public abstract class Room : TextureObject, ISpawnable
+    public abstract class Room : TextureObject, ISpawnable, IEndable
     {
         public double X { get; set; }
         public double Y { get; set; }
@@ -127,6 +127,21 @@ namespace HammerModel.Model.Structures
                 Texture = TexturePack.FloorTexture
             };
             return floor.GetSpawnCoordinates();
+        }
+
+        public virtual ValueTriple GetEndCoordinates(Portal portal)
+        {
+            Block floor = new Block
+            {
+                X = X,
+                Y = Y,
+                Z = Z,
+                Width = Width,
+                Breadth = Breadth,
+                Height = StandardValues.WALL_SIZE,
+                Texture = TexturePack.FloorTexture
+            };
+            return floor.GetEndCoordinates(portal);
         }
     }
 }

@@ -120,5 +120,10 @@ namespace HammerModel.Model.Structures
 
             return objectList;
         }
+
+        public override ValueTriple GetEndCoordinates(Portal portal)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

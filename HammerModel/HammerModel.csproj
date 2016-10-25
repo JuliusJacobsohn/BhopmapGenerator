@@ -49,6 +49,7 @@
     <Compile Include="Model\Structures\BhopFrameChallenge.cs" />
     <Compile Include="Model\Structures\BhopObstacleChallenge.cs" />
     <Compile Include="Model\Structures\BhopSimpleChallenge.cs" />
+    <Compile Include="Model\Structures\IEndable.cs" />
     <Compile Include="Model\Structures\ISpawnable.cs" />
     <Compile Include="Model\Structures\Portal.cs" />
     <Compile Include="Model\Structures\TextureObject.cs" />
