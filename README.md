@@ -29,4 +29,4 @@ Simple Roomconnector that creates a portal at the end of one and a teleport dest
 Support for more entities
 The actual mapgenerator (Select length, difficulty, standard textures and get a full map with spawn and end)
 
-More info coming. Contact: [Massta (Steam)](http://www.steamcommunity.com/id/massta)
+More info coming. Contact: [Julius (Steam)](https://steamcommunity.com/id/Chefkoch_JJ/)
